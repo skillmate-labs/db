@@ -221,4 +221,4 @@ O script de migração `migrate_to_mongodb.js` realiza a conversão automática 
 
 ## 📄 Licença
 
-Projeto acadêmico desenvolvido no challenge da FIAP.
+Projeto acadêmico desenvolvido para Global Solution da FIAP.
