@@ -11,7 +11,7 @@ Este repositório contém a estrutura e scripts de banco de dados do projeto **S
 
 ## 🎥 Vídeo Demonstrativo
 
-Assista ao vídeo demonstrativo da solução: [SkillMate - Demonstração](https://youtu.be/Ohdb5ijIjsg)
+Assista ao vídeo demonstrativo da solução: [SkillMate - Demonstração](https://youtu.be/9OTwt-uHbyw)
 
 ## 👥 Equipe de Desenvolvimento
 
