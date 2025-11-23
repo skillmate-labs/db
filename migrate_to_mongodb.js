@@ -4,491 +4,224 @@
 
 use skillmate;
 
-db.users.drop();
 db.roles.drop();
+db.users.drop();
 db.goals.drop();
+db.weekly_plans.drop();
+db.tasks.drop();
+db.references.drop();
 db.logs.drop();
 
+// Função helper para formatar a data do Oracle
+function parseOracleTimestamp(timestampStr) {
+  if (!timestampStr || timestampStr === '') return new Date();
+  const parts = timestampStr.split(' ');
+  if (parts.length < 2) return new Date();
+  const datePart = parts[0].split('/');
+  const timePart = parts[1].split(',')[0].split(':');
+  if (datePart.length !== 3 || timePart.length !== 3) return new Date();
+  const day = parseInt(datePart[0]);
+  const month = parseInt(datePart[1]) - 1;
+  const year = 2000 + parseInt(datePart[2]);
+  const hour = parseInt(timePart[0]);
+  const minute = parseInt(timePart[1]);
+  const second = parseInt(timePart[2]);
+  return new Date(year, month, day, hour, minute, second);
+}
+
 db.roles.insertMany([
-  { _id: 'jziszucfubmtdtklaifabh1n', name: 'Administrador', acronym: 'ADM', createdAt: new Date(), migratedAt: new Date() },
-  { _id: 'd8hyks8giczejw47xqikaci0', name: 'Desenvolvedor', acronym: 'DEV', createdAt: new Date(), migratedAt: new Date() },
-  { _id: 'dix5up9nyphadam3dbymgfjy', name: 'Designer UX/UI', acronym: 'DSG', createdAt: new Date(), migratedAt: new Date() },
-  { _id: 'ynlcjadhg5u587t6s7fmxg00', name: 'Analista de Dados', acronym: 'ANL', createdAt: new Date(), migratedAt: new Date() },
-  { _id: 'r6wghro1v874pdu4l16b850v', name: 'Gerente de Projetos', acronym: 'GPR', createdAt: new Date(), migratedAt: new Date() },
-  { _id: '83z3maofj7jrrr814rznbd13', name: 'Especialista em IA', acronym: 'IA', createdAt: new Date(), migratedAt: new Date() },
-  { _id: 'ycnvcqmqzmats3746gl7vswf', name: 'Product Manager', acronym: 'PM', createdAt: new Date(), migratedAt: new Date() },
-  { _id: 'jwo98rpx5dpor1w9kjbal5v1', name: 'DevOps Engineer', acronym: 'DOE', createdAt: new Date(), migratedAt: new Date() },
-  { _id: 'yblwvn88y2vb81evpp89vt3h', name: 'Cybersecurity', acronym: 'CS', createdAt: new Date(), migratedAt: new Date() },
-  { _id: 'qm76nh78x0vu5owu6appt0v0', name: 'Cloud Architect', acronym: 'CA', createdAt: new Date(), migratedAt: new Date() },
-  { _id: 'z996op8eojs9v66mtgv3g0gm', name: 'Scrum Master', acronym: 'SM', createdAt: new Date(), migratedAt: new Date() },
-  { _id: 'qnoejo7fm722x5cc9euqks6p', name: 'Data Scientist', acronym: 'DS', createdAt: new Date(), migratedAt: new Date() }
+  { _id: 'd117bnpa8b7c3hx8hl99zuv3', name: 'Administrador', acronym: 'ADM', createdAt: parseOracleTimestamp('20/11/25 23:57:14,514705000'), migratedAt: new Date() },
+  { _id: 'farkv24sj89zjqw452snwtvp', name: 'Desenvolvedor', acronym: 'DEV', createdAt: parseOracleTimestamp('20/11/25 23:57:14,521187000'), migratedAt: new Date() },
+  { _id: '6mjmgruj1jhxfktia61cyk3c', name: 'Designer UX/UI', acronym: 'DSG', createdAt: parseOracleTimestamp('20/11/25 23:57:14,521603000'), migratedAt: new Date() },
+  { _id: 'dsmldgicn1x2ko1bhhmo1fc5', name: 'Analista de Dados', acronym: 'ANL', createdAt: parseOracleTimestamp('20/11/25 23:57:14,521996000'), migratedAt: new Date() },
+  { _id: 'ykqk3or95wyky2lea5ppzkjh', name: 'Gerente de Projetos', acronym: 'GPR', createdAt: parseOracleTimestamp('20/11/25 23:57:14,522432000'), migratedAt: new Date() },
+  { _id: 'derpp68232w6v0ciold9hdgi', name: 'Especialista em IA', acronym: 'IA', createdAt: parseOracleTimestamp('20/11/25 23:57:14,522835000'), migratedAt: new Date() },
+  { _id: 'c24qqmd2p70jkq2ypkhksnno', name: 'Product Manager', acronym: 'PM', createdAt: parseOracleTimestamp('20/11/25 23:57:14,523208000'), migratedAt: new Date() },
+  { _id: 'gso6oqqg7m56ibui0mf6g463', name: 'DevOps Engineer', acronym: 'DOE', createdAt: parseOracleTimestamp('20/11/25 23:57:14,523596000'), migratedAt: new Date() },
+  { _id: 'wkj0qtxjljm42u8nkvftrm7g', name: 'Cybersecurity', acronym: 'CS', createdAt: parseOracleTimestamp('20/11/25 23:57:14,523987000'), migratedAt: new Date() },
+  { _id: 'wngzhji33yx49epivi1bvtva', name: 'Cloud Architect', acronym: 'CA', createdAt: parseOracleTimestamp('20/11/25 23:57:14,524342000'), migratedAt: new Date() },
+  { _id: '7lqyh49iyqpy36ce7az2yow6', name: 'Scrum Master', acronym: 'SM', createdAt: parseOracleTimestamp('20/11/25 23:57:14,524725000'), migratedAt: new Date() },
+  { _id: '47vd6thuzwnodibredt2asnt', name: 'Data Scientist', acronym: 'DS', createdAt: parseOracleTimestamp('20/11/25 23:57:14,525075000'), migratedAt: new Date() }
 ]);
 
+//
 db.users.insertMany([
-  {
-    _id: 'hbizq1cfnoby46k0gl2j19os',
-    name: 'Ana Silva',
-    email: 'ana.silva@skillmate.com',
-    password: 'pass123',
-    role: {
-      _id: 'jziszucfubmtdtklaifabh1n',
-      name: 'Administrador',
-      acronym: 'ADM'
-    },
-    createdAt: new Date(),
-    migratedAt: new Date()
-  },
-  {
-    _id: 'lfjqjd1xpx40f9lzl3rr1n3f',
-    name: 'Carlos Mendes',
-    email: 'carlos.mendes@skillmate.com',
-    password: 'pass123',
-    role: {
-      _id: 'd8hyks8giczejw47xqikaci0',
-      name: 'Desenvolvedor',
-      acronym: 'DEV'
-    },
-    createdAt: new Date(),
-    migratedAt: new Date()
-  },
-  {
-    _id: 'qmzbsl7thsgz4332c5oa5wps',
-    name: 'Mariana Costa',
-    email: 'mariana.costa@skillmate.com',
-    password: 'pass123',
-    role: {
-      _id: 'dix5up9nyphadam3dbymgfjy',
-      name: 'Designer UX/UI',
-      acronym: 'DSG'
-    },
-    createdAt: new Date(),
-    migratedAt: new Date()
-  },
-  {
-    _id: 'fj0tniy2r9s1pygwgaqa3fro',
-    name: 'João Santos',
-    email: 'joao.santos@skillmate.com',
-    password: 'pass123',
-    role: {
-      _id: 'ynlcjadhg5u587t6s7fmxg00',
-      name: 'Analista de Dados',
-      acronym: 'ANL'
-    },
-    createdAt: new Date(),
-    migratedAt: new Date()
-  },
-  {
-    _id: 'z5sxaiywvqv5tvlysyrjsaoj',
-    name: 'Fernanda Lima',
-    email: 'fernanda.lima@skillmate.com',
-    password: 'pass123',
-    role: {
-      _id: 'r6wghro1v874pdu4l16b850v',
-      name: 'Gerente de Projetos',
-      acronym: 'GPR'
-    },
-    createdAt: new Date(),
-    migratedAt: new Date()
-  },
-  {
-    _id: '65ay1765eignqmodpdx9kslz',
-    name: 'Ricardo Alves',
-    email: 'ricardo.alves@skillmate.com',
-    password: 'pass123',
-    role: {
-      _id: '83z3maofj7jrrr814rznbd13',
-      name: 'Especialista em IA',
-      acronym: 'IA'
-    },
-    createdAt: new Date(),
-    migratedAt: new Date()
-  },
-  {
-    _id: 'z8klf5xw0sm2fus0z2ja8028',
-    name: 'Juliana Rocha',
-    email: 'juliana.rocha@skillmate.com',
-    password: 'pass123',
-    role: {
-      _id: 'ycnvcqmqzmats3746gl7vswf',
-      name: 'Product Manager',
-      acronym: 'PM'
-    },
-    createdAt: new Date(),
-    migratedAt: new Date()
-  },
-  {
-    _id: '1fi3sz8v3la72ts51tfw763f',
-    name: 'Pedro Oliveira',
-    email: 'pedro.oliveira@skillmate.com',
-    password: 'pass123',
-    role: {
-      _id: 'jwo98rpx5dpor1w9kjbal5v1',
-      name: 'DevOps Engineer',
-      acronym: 'DOE'
-    },
-    createdAt: new Date(),
-    migratedAt: new Date()
-  },
-  {
-    _id: '579jidxqeteyvviu3mz8eawr',
-    name: 'Larissa Ferreira',
-    email: 'larissa.ferreira@skillmate.com',
-    password: 'pass123',
-    role: {
-      _id: 'yblwvn88y2vb81evpp89vt3h',
-      name: 'Cybersecurity',
-      acronym: 'CS'
-    },
-    createdAt: new Date(),
-    migratedAt: new Date()
-  },
-  {
-    _id: 'lpx5wvdxdic13wc74fwof1pv',
-    name: 'Bruno Souza',
-    email: 'bruno.souza@skillmate.com',
-    password: 'pass123',
-    role: {
-      _id: 'qm76nh78x0vu5owu6appt0v0',
-      name: 'Cloud Architect',
-      acronym: 'CA'
-    },
-    createdAt: new Date(),
-    migratedAt: new Date()
-  },
-  {
-    _id: '65vc7pwhnxe5y1dh1gpohlry',
-    name: 'Camila Martins',
-    email: 'camila.martins@skillmate.com',
-    password: 'pass123',
-    role: {
-      _id: 'z996op8eojs9v66mtgv3g0gm',
-      name: 'Scrum Master',
-      acronym: 'SM'
-    },
-    createdAt: new Date(),
-    migratedAt: new Date()
-  },
-  {
-    _id: 'smnk1cchli7ubz4q6hwrngev',
-    name: 'Gabriel Pereira',
-    email: 'gabriel.pereira@skillmate.com',
-    password: 'pass123',
-    role: {
-      _id: 'qnoejo7fm722x5cc9euqks6p',
-      name: 'Data Scientist',
-      acronym: 'DS'
-    },
-    createdAt: new Date(),
-    migratedAt: new Date()
-  }
+  { _id: '5b2df654f28948ac8076f280', name: 'Ian Braga', email: 'ian@example.com', password: '$2a$10$1OrfnhQYWKDMAzakrjBPAe/aw9N/Y2oOfkMTuNhDV9GfV2KM8LLVG', role_id: 'farkv24sj89zjqw452snwtvp', createdAt: parseOracleTimestamp('20/11/25 23:13:08,846469000'), migratedAt: new Date() },
+  { _id: '8dbcbbc0257c4af58ae7e6be', name: 'Ian Admin', email: 'ian.admin@example.com', password: '$2a$10$0tzPFEG1BBssJDzODdbqp.YXloUy/g4NbZl1niGdCf9XAVu.iqgLO', role_id: 'd117bnpa8b7c3hx8hl99zuv3', createdAt: parseOracleTimestamp('20/11/25 23:17:33,667601000'), migratedAt: new Date() },
+  { _id: '5d31bc8bd48e4cd1bde254a1', name: 'messagind', email: 'messagin-ui@example.com', password: '$2a$10$5t0rtBRoqR11cORCKHX5Ku974PPA9f.uEc2jZ/rgsNM7Q.aq5g1Ja', role_id: 'd117bnpa8b7c3hx8hl99zuv3', createdAt: parseOracleTimestamp('22/11/25 23:55:53,952957000'), migratedAt: new Date() },
+  { _id: 'ir3k8h61ib1dng3nc3d7eewc', name: 'Ana Silva', email: 'ana.silva@skillmate.com', password: 'pass123', role_id: 'd117bnpa8b7c3hx8hl99zuv3', createdAt: parseOracleTimestamp('20/11/25 23:57:14,646930000'), migratedAt: new Date() },
+  { _id: 'divz79pcoon41em8xesrp54h', name: 'Carlos Mendes', email: 'carlos.mendes@skillmate.com', password: 'pass123', role_id: 'farkv24sj89zjqw452snwtvp', createdAt: parseOracleTimestamp('20/11/25 23:57:14,649022000'), migratedAt: new Date() },
+  { _id: '6w0fwavmzo95hm4xpe7elgl0', name: 'Mariana Costa', email: 'mariana.costa@skillmate.com', password: 'pass123', role_id: '6mjmgruj1jhxfktia61cyk3c', createdAt: parseOracleTimestamp('20/11/25 23:57:14,649442000'), migratedAt: new Date() },
+  { _id: '7vou9rja5l4uaboe3mz9qhvd', name: 'João Santos', email: 'joao.santos@skillmate.com', password: 'pass123', role_id: 'dsmldgicn1x2ko1bhhmo1fc5', createdAt: parseOracleTimestamp('20/11/25 23:57:14,649833000'), migratedAt: new Date() },
+  { _id: 'jqv0bf84iezwr5mv04pioj1j', name: 'Fernanda Lima', email: 'fernanda.lima@skillmate.com', password: 'pass123', role_id: 'ykqk3or95wyky2lea5ppzkjh', createdAt: parseOracleTimestamp('20/11/25 23:57:14,650228000'), migratedAt: new Date() },
+  { _id: 'rxd1n64hc9kbxh4dpugs60zt', name: 'Ricardo Alves', email: 'ricardo.alves@skillmate.com', password: 'pass123', role_id: 'derpp68232w6v0ciold9hdgi', createdAt: parseOracleTimestamp('20/11/25 23:57:14,650657000'), migratedAt: new Date() },
+  { _id: 'gfh5qmn0dyspc2bkeayecgyg', name: 'Juliana Rocha', email: 'juliana.rocha@skillmate.com', password: 'pass123', role_id: 'c24qqmd2p70jkq2ypkhksnno', createdAt: parseOracleTimestamp('20/11/25 23:57:14,651030000'), migratedAt: new Date() },
+  { _id: 'ow0l9q3y2kx3jh7gy3qz96ot', name: 'Pedro Oliveira', email: 'pedro.oliveira@skillmate.com', password: 'pass123', role_id: 'gso6oqqg7m56ibui0mf6g463', createdAt: parseOracleTimestamp('20/11/25 23:57:14,651375000'), migratedAt: new Date() },
+  { _id: 'u5w97o0v17gq3go69fila9r2', name: 'Larissa Ferreira', email: 'larissa.ferreira@skillmate.com', password: 'pass123', role_id: 'wkj0qtxjljm42u8nkvftrm7g', createdAt: parseOracleTimestamp('20/11/25 23:57:14,651791000'), migratedAt: new Date() },
+  { _id: '3e4ccdz9rnl74tjui4kcoldy', name: 'Bruno Souza', email: 'bruno.souza@skillmate.com', password: 'pass123', role_id: 'wngzhji33yx49epivi1bvtva', createdAt: parseOracleTimestamp('20/11/25 23:57:14,652390000'), migratedAt: new Date() },
+  { _id: '8zaa55mo9rcarpvilrnx0yri', name: 'Camila Martins', email: 'camila.martins@skillmate.com', password: 'pass123', role_id: '7lqyh49iyqpy36ce7az2yow6', createdAt: parseOracleTimestamp('20/11/25 23:57:14,652762000'), migratedAt: new Date() },
+  { _id: 'atoolur234c89cor4n7m943u', name: 'Gabriel Pereira', email: 'gabriel.pereira@skillmate.com', password: 'pass123', role_id: '47vd6thuzwnodibredt2asnt', createdAt: parseOracleTimestamp('20/11/25 23:57:14,653151000'), migratedAt: new Date() },
+  { _id: 'f3f4b3727cba4234a8d57c61', name: 'messagind', email: 'messagin@example.com', password: '$2a$10$LB5vXQOX0w84xM84wEArv.7o8hiVgOsoRjY/Gj.yDrqQksBMzR3ui', role_id: 'd117bnpa8b7c3hx8hl99zuv3', createdAt: parseOracleTimestamp('22/11/25 17:47:37,676826000'), migratedAt: new Date() }
 ]);
 
 db.goals.insertMany([
-  {
-    _id: 'lc3nc7joi8myryoy6cpzq8xy',
-    title: 'Dominar Machine Learning e Deep Learning para aplicações empresariais',
-    experience: 'Tenho experiência básica em Python e estatística. Trabalho com análise de dados há 2 anos e quero migrar para área de IA. Preciso aprender frameworks como TensorFlow, PyTorch e entender modelos de redes neurais.',
-    hours_per_day: 4,
-    days_per_week: 5,
-    user: {
-      _id: 'fj0tniy2r9s1pygwgaqa3fro',
-      name: 'João Santos',
-      email: 'joao.santos@skillmate.com'
-    },
-    weekly_plans: [
-      {
-        _id: 'sfj14j8twfwslzk6yvrpyn6m',
-        week_start: ISODate('2024-01-01T00:00:00Z'),
-        week_end: ISODate('2024-01-07T23:59:59Z'),
-        weeks_to_complete: 12,
-        ai_prompt: 'Criar plano de aprendizado semanal para Machine Learning',
-        ai_response: 'Plano focado em fundamentos de ML.',
-        tasks: [
-          {
-            _id: 'uslce5wybopxe48q0dpoi19s',
-            title: 'Assistir curso introdutório de Machine Learning',
-            completed: false,
-            difficulty: 0,
-            difficulty_name: 'Easy',
-            references: [
-              {
-                name: 'Coursera - Machine Learning',
-                description: 'Curso completo de ML',
-                link: 'https://www.coursera.org/learn/machine-learning'
-              }
-            ]
-          },
-          {
-            _id: 'iobbbwo9evmr7fcwwcpb1kex',
-            title: 'Instalar e configurar ambiente Python',
-            completed: true,
-            difficulty: 0,
-            difficulty_name: 'Easy',
-            references: [
-              {
-                name: 'Python.org Tutorial',
-                description: 'Tutorial oficial do Python',
-                link: 'https://docs.python.org/3/tutorial/'
-              }
-            ]
-          },
-          {
-            _id: 'toh04j937nefsbyfa1ec9adn',
-            title: 'Estudar conceitos de regressão linear e classificação',
-            completed: false,
-            difficulty: 1,
-            difficulty_name: 'Normal',
-            references: [
-              {
-                name: 'Scikit-learn Documentation',
-                description: 'Documentação oficial do Scikit-learn',
-                link: 'https://scikit-learn.org/stable/'
-              }
-            ]
-          }
-        ]
-      },
-      {
-        _id: 'ep6x56nes7x5hsdlmdh3tvb5',
-        week_start: ISODate('2024-01-08T00:00:00Z'),
-        week_end: ISODate('2024-01-14T23:59:59Z'),
-        weeks_to_complete: 12,
-        ai_prompt: 'Aprofundar em Deep Learning',
-        ai_response: 'Estudar redes neurais e TensorFlow.',
-        tasks: [
-          {
-            _id: 'g4p9cdg13j265o2b8rxpg02w',
-            title: 'Implementar primeira rede neural com TensorFlow',
-            completed: false,
-            difficulty: 2,
-            difficulty_name: 'Hard',
-            references: [
-              {
-                name: 'TensorFlow Tutorials',
-                description: 'Tutoriais oficiais do TensorFlow',
-                link: 'https://www.tensorflow.org/tutorials'
-              }
-            ]
-          },
-          {
-            _id: '4td1lha0jx07mfv0w6copqh8',
-            title: 'Estudar arquiteturas de redes neurais convolucionais',
-            completed: false,
-            difficulty: 1,
-            difficulty_name: 'Normal',
-            references: [
-              {
-                name: 'Deep Learning Book',
-                description: 'Livro sobre Deep Learning',
-                link: 'https://www.deeplearningbook.org/'
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    created_at: new Date('2024-01-01'),
-    migratedAt: new Date()
-  },
-  {
-    _id: 'nc6vswk3ogx49mwthkjsoie2',
-    title: 'Tornar-se Cloud Architect certificado em AWS e Azure',
-    experience: 'Sou desenvolvedor backend com 5 anos de experiência. Já trabalho com Docker e Kubernetes, mas preciso dominar arquiteturas cloud nativas, serverless e multi-cloud. Objetivo é obter certificações AWS Solutions Architect e Azure Architect.',
-    hours_per_day: 3,
-    days_per_week: 6,
-    user: {
-      _id: 'lfjqjd1xpx40f9lzl3rr1n3f',
-      name: 'Carlos Mendes',
-      email: 'carlos.mendes@skillmate.com'
-    },
-    weekly_plans: [
-      {
-        _id: 'tqhoucoxvgo0fmxedjoshnhb',
-        week_start: ISODate('2024-01-15T00:00:00Z'),
-        week_end: ISODate('2024-01-21T23:59:59Z'),
-        weeks_to_complete: 16,
-        ai_prompt: 'Plano de estudos AWS',
-        ai_response: 'Cobrir serviços fundamentais da AWS.',
-        tasks: [
-          {
-            _id: 'i2rg069bos1nlhsc6s3iun1v',
-            title: 'Configurar conta AWS e explorar console',
-            completed: true,
-            difficulty: 0,
-            difficulty_name: 'Easy',
-            references: [
-              {
-                name: 'AWS Getting Started Guide',
-                description: 'Guia de início rápido da AWS',
-                link: 'https://aws.amazon.com/getting-started/'
-              }
-            ]
-          },
-          {
-            _id: 'nz3wg9udmv7cea1ygrkymd3t',
-            title: 'Criar primeira instância EC2 e configurar segurança',
-            completed: false,
-            difficulty: 1,
-            difficulty_name: 'Normal',
-            references: [
-              {
-                name: 'AWS EC2 Documentation',
-                description: 'Documentação do Amazon EC2',
-                link: 'https://docs.aws.amazon.com/ec2/'
-              }
-            ]
-          }
-        ]
-      },
-      {
-        _id: 'zzji97ix5ebp811debvn40pq',
-        week_start: ISODate('2024-01-22T00:00:00Z'),
-        week_end: ISODate('2024-01-28T23:59:59Z'),
-        weeks_to_complete: 16,
-        ai_prompt: 'Arquitetura Azure e Multi-Cloud',
-        ai_response: 'Estudar serviços Azure e estratégias multi-cloud.',
-        tasks: [
-          {
-            _id: 'p6w948twsl276ue1eypqhj1d',
-            title: 'Estudar serviços fundamentais do Azure',
-            completed: false,
-            difficulty: 1,
-            difficulty_name: 'Normal',
-            references: [
-              {
-                name: 'Microsoft Azure Learn',
-                description: 'Plataforma de aprendizado do Azure',
-                link: 'https://learn.microsoft.com/azure/'
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    created_at: new Date('2024-01-15'),
-    migratedAt: new Date()
-  },
-  {
-    _id: 'jbh3e2kzez8uttixeatqbbid',
-    title: 'Especializar-se em Design Thinking e prototipação avançada',
-    experience: 'Designer gráfico há 3 anos, migrando para UX/UI. Preciso aprender metodologias de pesquisa com usuários, criação de personas, wireframes, prototipação em Figma e testes de usabilidade. Foco em produtos SaaS e mobile.',
-    hours_per_day: 5,
-    days_per_week: 4,
-    user: {
-      _id: 'qmzbsl7thsgz4332c5oa5wps',
-      name: 'Mariana Costa',
-      email: 'mariana.costa@skillmate.com'
-    },
-    weekly_plans: [
-      {
-        _id: 'mvm19i6ifqwt9wlqkpfedpih',
-        week_start: ISODate('2024-02-01T00:00:00Z'),
-        week_end: ISODate('2024-02-07T23:59:59Z'),
-        weeks_to_complete: 8,
-        ai_prompt: 'Fundamentos de Design Thinking',
-        ai_response: 'Aprender metodologias de pesquisa com usuários.',
-        tasks: [
-          {
-            _id: '9e77qve2vqwb8e04609au6pk',
-            title: 'Aprender técnicas de entrevista com usuários',
-            completed: false,
-            difficulty: 1,
-            difficulty_name: 'Normal',
-            references: [
-              {
-                name: 'IDEO Design Thinking Toolkit',
-                description: 'Kit de ferramentas de Design Thinking',
-                link: 'https://www.ideou.com/pages/design-thinking'
-              }
-            ]
-          },
-          {
-            _id: 'g0eumvwoat7luypd2p95y5va',
-            title: 'Criar personas e mapas de empatia',
-            completed: false,
-            difficulty: 0,
-            difficulty_name: 'Easy',
-            references: [
-              {
-                name: 'Figma Design System',
-                description: 'Guia de sistemas de design no Figma',
-                link: 'https://www.figma.com/design-systems/'
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    created_at: new Date('2024-02-01'),
-    migratedAt: new Date()
-  },
-  {
-    _id: 'nyi5h2qxdeowoutt5wps64gl',
-    title: 'Dominar análise preditiva e visualização de dados avançada',
-    experience: 'Analista de dados júnior, conheço SQL e Excel avançado. Quero evoluir para Data Scientist, aprendendo Python para análise, bibliotecas como Pandas e Scikit-learn, e ferramentas como Tableau e Power BI para dashboards executivos.',
-    hours_per_day: 4,
-    days_per_week: 5,
-    user: {
-      _id: 'fj0tniy2r9s1pygwgaqa3fro',
-      name: 'João Santos',
-      email: 'joao.santos@skillmate.com'
-    },
-    weekly_plans: [
-      {
-        _id: 'kqefjdku5tqxrlomv2piu8n8',
-        week_start: ISODate('2024-02-08T00:00:00Z'),
-        week_end: ISODate('2024-02-14T23:59:59Z'),
-        weeks_to_complete: 10,
-        ai_prompt: 'Python para Análise de Dados',
-        ai_response: 'Dominar Pandas e Scikit-learn para análise preditiva.',
-        tasks: [
-          {
-            _id: 'ppr1fhnf5cr3g1hwatmt2g8z',
-            title: 'Dominar manipulação de dados com Pandas',
-            completed: false,
-            difficulty: 1,
-            difficulty_name: 'Normal',
-            references: [
-              {
-                name: 'Pandas Documentation',
-                description: 'Documentação oficial do Pandas',
-                link: 'https://pandas.pydata.org/docs/'
-              }
-            ]
-          },
-          {
-            _id: 'f86j1alvfwms2au6wpe0px02',
-            title: 'Implementar modelo preditivo com Scikit-learn',
-            completed: false,
-            difficulty: 2,
-            difficulty_name: 'Hard',
-            references: [
-              {
-                name: 'Scikit-learn User Guide',
-                description: 'Guia do usuário do Scikit-learn',
-                link: 'https://scikit-learn.org/stable/user_guide.html'
-              }
-            ]
-          }
-        ]
-      }
-    ],
-    created_at: new Date('2024-02-08'),
-    migratedAt: new Date()
-  }
+  { _id: 'my0eau79ioogp4g3me8rs90g', title: 'Dominar Machine Learning e Deep Learning para aplicações empresariais', experience: 'Tenho experiência básica em Python e estatística. Trabalho com análise de dados há 2 anos e quero migrar para área de IA. Preciso aprender frameworks como TensorFlow, PyTorch e entender modelos de redes neurais.', hours_per_day: 4, days_per_week: 5, user_id: '7vou9rja5l4uaboe3mz9qhvd', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,661825000'), updated_at: null, migratedAt: new Date() },
+  { _id: '5laztk2mhetleo1cjrep7vkg', title: 'Tornar-se Cloud Architect certificado em AWS e Azure', experience: 'Sou desenvolvedor backend com 5 anos de experiência. Já trabalho com Docker e Kubernetes, mas preciso dominar arquiteturas cloud nativas, serverless e multi-cloud. Objetivo é obter certificações AWS Solutions Architect e Azure Architect.', hours_per_day: 3, days_per_week: 6, user_id: 'divz79pcoon41em8xesrp54h', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,663928000'), updated_at: null, migratedAt: new Date() },
+  { _id: 's63s4t0h904t50lpt8rui86v', title: 'Especializar-se em Design Thinking e prototipação avançada', experience: 'Designer gráfico há 3 anos, migrando para UX/UI. Preciso aprender metodologias de pesquisa com usuários, criação de personas, wireframes, prototipação em Figma e testes de usabilidade. Foco em produtos SaaS e mobile.', hours_per_day: 5, days_per_week: 4, user_id: '6w0fwavmzo95hm4xpe7elgl0', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,664426000'), updated_at: null, migratedAt: new Date() },
+  { _id: 'wd6pubmnh3hn4tug4n49eds3', title: 'Dominar análise preditiva e visualização de dados avançada', experience: 'Analista de dados júnior, conheço SQL e Excel avançado. Quero evoluir para Data Scientist, aprendendo Python para análise, bibliotecas como Pandas e Scikit-learn, e ferramentas como Tableau e Power BI para dashboards executivos.', hours_per_day: 4, days_per_week: 5, user_id: '7vou9rja5l4uaboe3mz9qhvd', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,664911000'), updated_at: null, migratedAt: new Date() },
+  { _id: 'pw9gth2e908ouduhuc6zj5wn', title: 'Certificar-se como Scrum Master e Product Owner', experience: 'Gerente de projetos tradicional há 4 anos. Preciso migrar para metodologias ágeis. Objetivo é obter certificação Scrum Master (PSM) e Product Owner (PSPO), além de dominar ferramentas como Jira e técnicas de estimativa ágil.', hours_per_day: 2, days_per_week: 5, user_id: 'jqv0bf84iezwr5mv04pioj1j', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,665517000'), updated_at: null, migratedAt: new Date() },
+  { _id: 'llunbopcz6weifsguf2oweno', title: 'Desenvolver chatbots e sistemas de NLP para atendimento', experience: 'Desenvolvedor full-stack com conhecimento em APIs REST. Quero criar soluções de IA conversacional usando OpenAI GPT, processamento de linguagem natural e integração com sistemas de CRM. Foco em automação de atendimento ao cliente.', hours_per_day: 6, days_per_week: 4, user_id: 'rxd1n64hc9kbxh4dpugs60zt', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,666252000'), updated_at: null, migratedAt: new Date() },
+  { _id: 'p1yn8eg18utvvhhyxus2idne', title: 'Tornar-se Product Manager especializado em produtos digitais', experience: 'Analista de negócios com 3 anos de experiência. Preciso aprender estratégia de produto, roadmap, métricas de produto (KPIs), A/B testing, e como trabalhar com equipes de desenvolvimento. Objetivo é liderar produtos SaaS.', hours_per_day: 3, days_per_week: 5, user_id: 'gfh5qmn0dyspc2bkeayecgyg', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,666979000'), updated_at: null, migratedAt: new Date() },
+  { _id: 'ize5a921ci1asv4xqfz3nz5i', title: 'Dominar pipelines de CI/CD e infraestrutura como código', experience: 'Sysadmin migrando para DevOps. Conheço Linux e scripts bash. Preciso aprender GitLab CI, Jenkins, Terraform, Ansible, monitoramento com Prometheus e Grafana. Foco em automação completa de deploy e infraestrutura.', hours_per_day: 5, days_per_week: 5, user_id: 'ow0l9q3y2kx3jh7gy3qz96ot', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,667682000'), updated_at: null, migratedAt: new Date() },
+  { _id: '0lh5i1txq2j9d9tb2lwd3bme', title: 'Especializar-se em segurança de aplicações web e cloud', experience: 'Desenvolvedor com interesse em segurança. Quero aprender OWASP Top 10, testes de penetração, análise de vulnerabilidades, segurança em APIs, e compliance (LGPD, GDPR). Objetivo é trabalhar como Security Engineer.', hours_per_day: 4, days_per_week: 4, user_id: 'u5w97o0v17gq3go69fila9r2', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,668362000'), updated_at: null, migratedAt: new Date() },
+  { _id: '0iww2jm8al1i1mptbbawvnyj', title: 'Arquitetar soluções cloud escaláveis e resilientes', experience: 'Arquiteto de software com 7 anos de experiência. Preciso evoluir para cloud-native, aprendendo padrões de arquitetura (microservices, event-driven), serverless, containers, service mesh, e otimização de custos cloud.', hours_per_day: 3, days_per_week: 6, user_id: '3e4ccdz9rnl74tjui4kcoldy', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,669796000'), updated_at: null, migratedAt: new Date() },
+  { _id: 'rl7g1imqt3rab6vqeai4l8u4', title: 'Tornar-se Agile Coach e facilitador de transformação digital', experience: 'Scrum Master há 2 anos. Quero evoluir para Agile Coach, aprendendo técnicas de coaching, facilitação de workshops, transformação organizacional, e frameworks como SAFe e LeSS. Foco em ajudar empresas na transição ágil.', hours_per_day: 2, days_per_week: 5, user_id: '8zaa55mo9rcarpvilrnx0yri', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,670592000'), updated_at: null, migratedAt: new Date() },
+  { _id: 'mwzopbohut2uszoufij2ia9g', title: 'Dominar Machine Learning para análise de dados empresariais', experience: 'Estatístico com conhecimento em R. Preciso migrar para Python, aprender algoritmos de ML (regressão, classificação, clustering), deep learning básico, e como implementar modelos em produção. Foco em dados de negócio.', hours_per_day: 5, days_per_week: 5, user_id: 'atoolur234c89cor4n7m943u', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,671335000'), updated_at: null, migratedAt: new Date() }
 ]);
 
-db.users.createIndex({ email: 1 }, { unique: true });
-db.users.createIndex({ 'role.acronym': 1 });
-db.users.createIndex({ name: 1 });
+db.weekly_plans.insertMany([
+  { _id: 'cir6lie48wvgj0xemkvtvaaj', goal_id: 'my0eau79ioogp4g3me8rs90g', week_start: parseOracleTimestamp('01/01/24 00:00:00,000000000'), week_end: parseOracleTimestamp('07/01/24 23:59:59,000000000'), weeks_to_complete: 12, ai_prompt: 'Criar plano de aprendizado semanal para Machine Learning', ai_response: null, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,687343000'), migratedAt: new Date() },
+  { _id: 'jrxu8tbo5gl0ksbsfo11pcyr', goal_id: 'my0eau79ioogp4g3me8rs90g', week_start: parseOracleTimestamp('08/01/24 00:00:00,000000000'), week_end: parseOracleTimestamp('14/01/24 23:59:59,000000000'), weeks_to_complete: 12, ai_prompt: 'Aprofundar em Deep Learning', ai_response: null, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,690229000'), migratedAt: new Date() },
+  { _id: 's4l4baql0erk2fi3377tjzws', goal_id: '5laztk2mhetleo1cjrep7vkg', week_start: parseOracleTimestamp('15/01/24 00:00:00,000000000'), week_end: parseOracleTimestamp('21/01/24 23:59:59,000000000'), weeks_to_complete: 16, ai_prompt: 'Plano de estudos AWS', ai_response: null, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,691002000'), migratedAt: new Date() },
+  { _id: 'ymlbcy11m9oatr0vl2acykm9', goal_id: '5laztk2mhetleo1cjrep7vkg', week_start: parseOracleTimestamp('22/01/24 00:00:00,000000000'), week_end: parseOracleTimestamp('28/01/24 23:59:59,000000000'), weeks_to_complete: 16, ai_prompt: 'Arquitetura Azure e Multi-Cloud', ai_response: null, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,691722000'), migratedAt: new Date() },
+  { _id: 'lylz1kahgx5ezhccd5kmw9oe', goal_id: 's63s4t0h904t50lpt8rui86v', week_start: parseOracleTimestamp('01/02/24 00:00:00,000000000'), week_end: parseOracleTimestamp('07/02/24 23:59:59,000000000'), weeks_to_complete: 8, ai_prompt: 'Fundamentos de Design Thinking', ai_response: null, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,692459000'), migratedAt: new Date() },
+  { _id: 'z7w798raaw04928twkeiz3xp', goal_id: 'wd6pubmnh3hn4tug4n49eds3', week_start: parseOracleTimestamp('08/02/24 00:00:00,000000000'), week_end: parseOracleTimestamp('14/02/24 23:59:59,000000000'), weeks_to_complete: 10, ai_prompt: 'Python para Análise de Dados', ai_response: null, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,693466000'), migratedAt: new Date() },
+  { _id: 'ylplj0dbv7x1jshhjw8y9bv0', goal_id: 'pw9gth2e908ouduhuc6zj5wn', week_start: parseOracleTimestamp('15/02/24 00:00:00,000000000'), week_end: parseOracleTimestamp('21/02/24 23:59:59,000000000'), weeks_to_complete: 6, ai_prompt: 'Preparação para Certificação Scrum Master', ai_response: null, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,694186000'), migratedAt: new Date() },
+  { _id: 'fpvl2ctoibjjzvbwunvjkg05', goal_id: 'llunbopcz6weifsguf2oweno', week_start: parseOracleTimestamp('22/02/24 00:00:00,000000000'), week_end: parseOracleTimestamp('28/02/24 23:59:59,000000000'), weeks_to_complete: 8, ai_prompt: 'Desenvolvimento de Chatbots com OpenAI', ai_response: null, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,694956000'), migratedAt: new Date() },
+  { _id: '6c7y4jf40axb3xq496a9dj33', goal_id: 'ize5a921ci1asv4xqfz3nz5i', week_start: parseOracleTimestamp('01/03/24 00:00:00,000000000'), week_end: parseOracleTimestamp('07/03/24 23:59:59,000000000'), weeks_to_complete: 10, ai_prompt: 'Pipelines CI/CD com GitLab e Jenkins', ai_response: null, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,695675000'), migratedAt: new Date() },
+  { _id: 'at8jilwcrtaxlzi9c6ksjrqt', goal_id: '0iww2jm8al1i1mptbbawvnyj', week_start: parseOracleTimestamp('08/03/24 00:00:00,000000000'), week_end: parseOracleTimestamp('14/03/24 23:59:59,000000000'), weeks_to_complete: 12, ai_prompt: 'Arquitetura Microservices e Serverless', ai_response: null, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,696407000'), migratedAt: new Date() }
+]);
+
+db.tasks.insertMany([
+  { _id: 'kvinptz7w58cu27huyyenz3c', weekly_plan_id: 'cir6lie48wvgj0xemkvtvaaj', title: 'Assistir curso introdutório de Machine Learning', completed: false, difficulty: 0, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,707621000'), migratedAt: new Date() },
+  { _id: '2lsn1kmkegxx5ladp9z6rghw', weekly_plan_id: 'cir6lie48wvgj0xemkvtvaaj', title: 'Instalar e configurar ambiente Python', completed: true, difficulty: 0, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,710224000'), migratedAt: new Date() },
+  { _id: 'u9xwgkvc600g3ch1cw0pd7l9', weekly_plan_id: 'cir6lie48wvgj0xemkvtvaaj', title: 'Estudar conceitos de regressão linear e classificação', completed: false, difficulty: 1, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,710850000'), migratedAt: new Date() },
+  { _id: 'xob45bynkf97u8nb6o3ynh5r', weekly_plan_id: 'jrxu8tbo5gl0ksbsfo11pcyr', title: 'Implementar primeira rede neural com TensorFlow', completed: false, difficulty: 2, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,711457000'), migratedAt: new Date() },
+  { _id: 'vqmvdtvhozrclkph60eoav28', weekly_plan_id: 'jrxu8tbo5gl0ksbsfo11pcyr', title: 'Estudar arquiteturas de redes neurais convolucionais', completed: false, difficulty: 1, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,712061000'), migratedAt: new Date() },
+  { _id: 'buerfhqj5np8ukuy4qa6i2i3', weekly_plan_id: 's4l4baql0erk2fi3377tjzws', title: 'Configurar conta AWS e explorar console', completed: true, difficulty: 0, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,712657000'), migratedAt: new Date() },
+  { _id: 'f8co3xqwaqci0crjc7b6ua51', weekly_plan_id: 's4l4baql0erk2fi3377tjzws', title: 'Criar primeira instância EC2 e configurar segurança', completed: false, difficulty: 1, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,713382000'), migratedAt: new Date() },
+  { _id: 'hekiob1gsh5846664shkmc87', weekly_plan_id: 'ymlbcy11m9oatr0vl2acykm9', title: 'Estudar serviços fundamentais do Azure', completed: false, difficulty: 1, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,714027000'), migratedAt: new Date() },
+  { _id: 'ob233eumcnwhzi2ty8hu8nf6', weekly_plan_id: 'lylz1kahgx5ezhccd5kmw9oe', title: 'Aprender técnicas de entrevista com usuários', completed: false, difficulty: 1, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,714467000'), migratedAt: new Date() },
+  { _id: 'pig7d3yvfdchfmsvvsftezps', weekly_plan_id: 'lylz1kahgx5ezhccd5kmw9oe', title: 'Criar personas e mapas de empatia', completed: false, difficulty: 0, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,714863000'), migratedAt: new Date() },
+  { _id: 'qo5kqd43j9068i7iryo4ulfj', weekly_plan_id: 'z7w798raaw04928twkeiz3xp', title: 'Dominar manipulação de dados com Pandas', completed: false, difficulty: 1, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,715266000'), migratedAt: new Date() },
+  { _id: 'qmecdvp6xbit7tppd2eevq4d', weekly_plan_id: 'z7w798raaw04928twkeiz3xp', title: 'Implementar modelo preditivo com Scikit-learn', completed: false, difficulty: 2, created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, created_at: parseOracleTimestamp('20/11/25 23:57:14,715652000'), migratedAt: new Date() }
+]);
+
+db.references.insertMany([
+  { _id: 'huoyav261antyjz7b8q52nyv', task_id: 'kvinptz7w58cu27huyyenz3c', name: 'Coursera - Machine Learning', description: 'Curso completo de ML', link: 'https://www.coursera.org/learn/machine-learning', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, migratedAt: new Date() },
+  { _id: 'rt9f29mx6t1dgh3obvcw2fme', task_id: '2lsn1kmkegxx5ladp9z6rghw', name: 'Python.org Tutorial', description: 'Tutorial oficial do Python', link: 'https://docs.python.org/3/tutorial/', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, migratedAt: new Date() },
+  { _id: '1uan3syydo32veuytex5rsld', task_id: 'u9xwgkvc600g3ch1cw0pd7l9', name: 'Scikit-learn Documentation', description: 'Documentação oficial do Scikit-learn', link: 'https://scikit-learn.org/stable/', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, migratedAt: new Date() },
+  { _id: 'usrusbzid9svsama7v61lncv', task_id: 'xob45bynkf97u8nb6o3ynh5r', name: 'TensorFlow Tutorials', description: 'Tutoriais oficiais do TensorFlow', link: 'https://www.tensorflow.org/tutorials', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, migratedAt: new Date() },
+  { _id: '0zrjxyilds7mun7hnmodf7zr', task_id: 'vqmvdtvhozrclkph60eoav28', name: 'Deep Learning Book', description: 'Livro sobre Deep Learning', link: 'https://www.deeplearningbook.org/', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, migratedAt: new Date() },
+  { _id: 'zuw36nyki84gz7thsq7cokil', task_id: 'buerfhqj5np8ukuy4qa6i2i3', name: 'AWS Getting Started Guide', description: 'Guia de início rápido da AWS', link: 'https://aws.amazon.com/getting-started/', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, migratedAt: new Date() },
+  { _id: '7l5rl1cpkdcuc6vlr2sjlro6', task_id: 'f8co3xqwaqci0crjc7b6ua51', name: 'AWS EC2 Documentation', description: 'Documentação do Amazon EC2', link: 'https://docs.aws.amazon.com/ec2/', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, migratedAt: new Date() },
+  { _id: '3mgth72x5rkif10sc7014fs9', task_id: 'hekiob1gsh5846664shkmc87', name: 'Microsoft Azure Learn', description: 'Plataforma de aprendizado do Azure', link: 'https://learn.microsoft.com/azure/', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, migratedAt: new Date() },
+  { _id: 'jqmz1xh0ybatz5dgvn2hym4t', task_id: 'ob233eumcnwhzi2ty8hu8nf6', name: 'IDEO Design Thinking Toolkit', description: 'Kit de ferramentas de Design Thinking', link: 'https://www.ideou.com/pages/design-thinking', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, migratedAt: new Date() },
+  { _id: 'zjagw75c2sj9vanttl14w3yx', task_id: 'pig7d3yvfdchfmsvvsftezps', name: 'Figma Design System', description: 'Guia de sistemas de design no Figma', link: 'https://www.figma.com/design-systems/', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, migratedAt: new Date() },
+  { _id: 'kt8srnt8zn5nvd2quksk5q0e', task_id: 'qo5kqd43j9068i7iryo4ulfj', name: 'Pandas Documentation', description: 'Documentação oficial do Pandas', link: 'https://pandas.pydata.org/docs/', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, migratedAt: new Date() },
+  { _id: 'yubkftha39yelpas5fmhdgad', task_id: 'qmecdvp6xbit7tppd2eevq4d', name: 'Scikit-learn User Guide', description: 'Guia do usuário do Scikit-learn', link: 'https://scikit-learn.org/stable/user_guide.html', created_by: 'ir3k8h61ib1dng3nc3d7eewc', updated_by: null, migratedAt: new Date() }
+]);
+
+db.logs.insertMany([
+  { _id: 71, username: 'RM554989', operation: 'INSERT', table_name: 'users', datetime: parseOracleTimestamp('21/11/25 00:13:08,932642000'), old_value: '', new_value: 'ID: 5b2df654f28948ac8076f280, Name: Ian Braga, Email: ian@example.com, Role: farkv24sj89zjqw452snwtvp', migratedAt: new Date() },
+  { _id: 72, username: 'RM554989', operation: 'INSERT', table_name: 'users', datetime: parseOracleTimestamp('21/11/25 00:17:33,737857000'), old_value: '', new_value: 'ID: 8dbcbbc0257c4af58ae7e6be, Name: Ian Admin, Email: ian.admin@example.com, Role: d117bnpa8b7c3hx8hl99zuv3', migratedAt: new Date() },
+  { _id: 74, username: 'RM554989', operation: 'INSERT', table_name: 'users', datetime: parseOracleTimestamp('23/11/25 00:55:54,239094000'), old_value: '', new_value: 'ID: 5d31bc8bd48e4cd1bde254a1, Name: messagind, Email: messagin-ui@example.com, Role: d117bnpa8b7c3hx8hl99zuv3', migratedAt: new Date() },
+  { _id: 1, username: 'RM554989', operation: 'INSERT', table_name: 'roles', datetime: parseOracleTimestamp('20/11/25 23:57:14,520032000'), old_value: '', new_value: 'ID: d117bnpa8b7c3hx8hl99zuv3, Name: Administrador, Acronym: ADM', migratedAt: new Date() },
+  { _id: 2, username: 'RM554989', operation: 'INSERT', table_name: 'roles', datetime: parseOracleTimestamp('20/11/25 23:57:14,521325000'), old_value: '', new_value: 'ID: farkv24sj89zjqw452snwtvp, Name: Desenvolvedor, Acronym: DEV', migratedAt: new Date() },
+  { _id: 3, username: 'RM554989', operation: 'INSERT', table_name: 'roles', datetime: parseOracleTimestamp('20/11/25 23:57:14,521714000'), old_value: '', new_value: 'ID: 6mjmgruj1jhxfktia61cyk3c, Name: Designer UX/UI, Acronym: DSG', migratedAt: new Date() },
+  { _id: 4, username: 'RM554989', operation: 'INSERT', table_name: 'roles', datetime: parseOracleTimestamp('20/11/25 23:57:14,522101000'), old_value: '', new_value: 'ID: dsmldgicn1x2ko1bhhmo1fc5, Name: Analista de Dados, Acronym: ANL', migratedAt: new Date() },
+  { _id: 5, username: 'RM554989', operation: 'INSERT', table_name: 'roles', datetime: parseOracleTimestamp('20/11/25 23:57:14,522540000'), old_value: '', new_value: 'ID: ykqk3or95wyky2lea5ppzkjh, Name: Gerente de Projetos, Acronym: GPR', migratedAt: new Date() },
+  { _id: 6, username: 'RM554989', operation: 'INSERT', table_name: 'roles', datetime: parseOracleTimestamp('20/11/25 23:57:14,522955000'), old_value: '', new_value: 'ID: derpp68232w6v0ciold9hdgi, Name: Especialista em IA, Acronym: IA', migratedAt: new Date() },
+  { _id: 7, username: 'RM554989', operation: 'INSERT', table_name: 'roles', datetime: parseOracleTimestamp('20/11/25 23:57:14,523325000'), old_value: '', new_value: 'ID: c24qqmd2p70jkq2ypkhksnno, Name: Product Manager, Acronym: PM', migratedAt: new Date() },
+  { _id: 8, username: 'RM554989', operation: 'INSERT', table_name: 'roles', datetime: parseOracleTimestamp('20/11/25 23:57:14,523701000'), old_value: '', new_value: 'ID: gso6oqqg7m56ibui0mf6g463, Name: DevOps Engineer, Acronym: DOE', migratedAt: new Date() },
+  { _id: 9, username: 'RM554989', operation: 'INSERT', table_name: 'roles', datetime: parseOracleTimestamp('20/11/25 23:57:14,524090000'), old_value: '', new_value: 'ID: wkj0qtxjljm42u8nkvftrm7g, Name: Cybersecurity, Acronym: CS', migratedAt: new Date() },
+  { _id: 10, username: 'RM554989', operation: 'INSERT', table_name: 'roles', datetime: parseOracleTimestamp('20/11/25 23:57:14,524473000'), old_value: '', new_value: 'ID: wngzhji33yx49epivi1bvtva, Name: Cloud Architect, Acronym: CA', migratedAt: new Date() },
+  { _id: 11, username: 'RM554989', operation: 'INSERT', table_name: 'roles', datetime: parseOracleTimestamp('20/11/25 23:57:14,524829000'), old_value: '', new_value: 'ID: 7lqyh49iyqpy36ce7az2yow6, Name: Scrum Master, Acronym: SM', migratedAt: new Date() },
+  { _id: 12, username: 'RM554989', operation: 'INSERT', table_name: 'roles', datetime: parseOracleTimestamp('20/11/25 23:57:14,525174000'), old_value: '', new_value: 'ID: 47vd6thuzwnodibredt2asnt, Name: Data Scientist, Acronym: DS', migratedAt: new Date() },
+  { _id: 13, username: 'RM554989', operation: 'INSERT', table_name: 'users', datetime: parseOracleTimestamp('20/11/25 23:57:14,648489000'), old_value: '', new_value: 'ID: ir3k8h61ib1dng3nc3d7eewc, Name: Ana Silva, Email: ana.silva@skillmate.com, Role: d117bnpa8b7c3hx8hl99zuv3', migratedAt: new Date() },
+  { _id: 14, username: 'RM554989', operation: 'INSERT', table_name: 'users', datetime: parseOracleTimestamp('20/11/25 23:57:14,649147000'), old_value: '', new_value: 'ID: divz79pcoon41em8xesrp54h, Name: Carlos Mendes, Email: carlos.mendes@skillmate.com, Role: farkv24sj89zjqw452snwtvp', migratedAt: new Date() },
+  { _id: 15, username: 'RM554989', operation: 'INSERT', table_name: 'users', datetime: parseOracleTimestamp('20/11/25 23:57:14,649551000'), old_value: '', new_value: 'ID: 6w0fwavmzo95hm4xpe7elgl0, Name: Mariana Costa, Email: mariana.costa@skillmate.com, Role: 6mjmgruj1jhxfktia61cyk3c', migratedAt: new Date() },
+  { _id: 16, username: 'RM554989', operation: 'INSERT', table_name: 'users', datetime: parseOracleTimestamp('20/11/25 23:57:14,649960000'), old_value: '', new_value: 'ID: 7vou9rja5l4uaboe3mz9qhvd, Name: João Santos, Email: joao.santos@skillmate.com, Role: dsmldgicn1x2ko1bhhmo1fc5', migratedAt: new Date() },
+  { _id: 17, username: 'RM554989', operation: 'INSERT', table_name: 'users', datetime: parseOracleTimestamp('20/11/25 23:57:14,650362000'), old_value: '', new_value: 'ID: jqv0bf84iezwr5mv04pioj1j, Name: Fernanda Lima, Email: fernanda.lima@skillmate.com, Role: ykqk3or95wyky2lea5ppzkjh', migratedAt: new Date() },
+  { _id: 18, username: 'RM554989', operation: 'INSERT', table_name: 'users', datetime: parseOracleTimestamp('20/11/25 23:57:14,650757000'), old_value: '', new_value: 'ID: rxd1n64hc9kbxh4dpugs60zt, Name: Ricardo Alves, Email: ricardo.alves@skillmate.com, Role: derpp68232w6v0ciold9hdgi', migratedAt: new Date() },
+  { _id: 19, username: 'RM554989', operation: 'INSERT', table_name: 'users', datetime: parseOracleTimestamp('20/11/25 23:57:14,651133000'), old_value: '', new_value: 'ID: gfh5qmn0dyspc2bkeayecgyg, Name: Juliana Rocha, Email: juliana.rocha@skillmate.com, Role: c24qqmd2p70jkq2ypkhksnno', migratedAt: new Date() },
+  { _id: 20, username: 'RM554989', operation: 'INSERT', table_name: 'users', datetime: parseOracleTimestamp('20/11/25 23:57:14,651475000'), old_value: '', new_value: 'ID: ow0l9q3y2kx3jh7gy3qz96ot, Name: Pedro Oliveira, Email: pedro.oliveira@skillmate.com, Role: gso6oqqg7m56ibui0mf6g463', migratedAt: new Date() },
+  { _id: 21, username: 'RM554989', operation: 'INSERT', table_name: 'users', datetime: parseOracleTimestamp('20/11/25 23:57:14,651931000'), old_value: '', new_value: 'ID: u5w97o0v17gq3go69fila9r2, Name: Larissa Ferreira, Email: larissa.ferreira@skillmate.com, Role: wkj0qtxjljm42u8nkvftrm7g', migratedAt: new Date() },
+  { _id: 22, username: 'RM554989', operation: 'INSERT', table_name: 'users', datetime: parseOracleTimestamp('20/11/25 23:57:14,652493000'), old_value: '', new_value: 'ID: 3e4ccdz9rnl74tjui4kcoldy, Name: Bruno Souza, Email: bruno.souza@skillmate.com, Role: wngzhji33yx49epivi1bvtva', migratedAt: new Date() },
+  { _id: 23, username: 'RM554989', operation: 'INSERT', table_name: 'users', datetime: parseOracleTimestamp('20/11/25 23:57:14,652868000'), old_value: '', new_value: 'ID: 8zaa55mo9rcarpvilrnx0yri, Name: Camila Martins, Email: camila.martins@skillmate.com, Role: 7lqyh49iyqpy36ce7az2yow6', migratedAt: new Date() },
+  { _id: 24, username: 'RM554989', operation: 'INSERT', table_name: 'users', datetime: parseOracleTimestamp('20/11/25 23:57:14,653300000'), old_value: '', new_value: 'ID: atoolur234c89cor4n7m943u, Name: Gabriel Pereira, Email: gabriel.pereira@skillmate.com, Role: 47vd6thuzwnodibredt2asnt', migratedAt: new Date() },
+  { _id: 25, username: 'RM554989', operation: 'INSERT', table_name: 'goals', datetime: parseOracleTimestamp('20/11/25 23:57:14,663282000'), old_value: '', new_value: 'ID: my0eau79ioogp4g3me8rs90g, Title: Dominar Machine Learning e Deep Learning para aplicações empresariais, User: 7vou9rja5l4uaboe3mz9qhvd', migratedAt: new Date() },
+  { _id: 26, username: 'RM554989', operation: 'INSERT', table_name: 'goals', datetime: parseOracleTimestamp('20/11/25 23:57:14,664055000'), old_value: '', new_value: 'ID: 5laztk2mhetleo1cjrep7vkg, Title: Tornar-se Cloud Architect certificado em AWS e Azure, User: divz79pcoon41em8xesrp54h', migratedAt: new Date() },
+  { _id: 27, username: 'RM554989', operation: 'INSERT', table_name: 'goals', datetime: parseOracleTimestamp('20/11/25 23:57:14,664540000'), old_value: '', new_value: 'ID: s63s4t0h904t50lpt8rui86v, Title: Especializar-se em Design Thinking e prototipação avançada, User: 6w0fwavmzo95hm4xpe7elgl0', migratedAt: new Date() },
+  { _id: 28, username: 'RM554989', operation: 'INSERT', table_name: 'goals', datetime: parseOracleTimestamp('20/11/25 23:57:14,665022000'), old_value: '', new_value: 'ID: wd6pubmnh3hn4tug4n49eds3, Title: Dominar análise preditiva e visualização de dados avançada, User: 7vou9rja5l4uaboe3mz9qhvd', migratedAt: new Date() },
+  { _id: 29, username: 'RM554989', operation: 'INSERT', table_name: 'goals', datetime: parseOracleTimestamp('20/11/25 23:57:14,665671000'), old_value: '', new_value: 'ID: pw9gth2e908ouduhuc6zj5wn, Title: Certificar-se como Scrum Master e Product Owner, User: jqv0bf84iezwr5mv04pioj1j', migratedAt: new Date() },
+  { _id: 30, username: 'RM554989', operation: 'INSERT', table_name: 'goals', datetime: parseOracleTimestamp('20/11/25 23:57:14,666444000'), old_value: '', new_value: 'ID: llunbopcz6weifsguf2oweno, Title: Desenvolver chatbots e sistemas de NLP para atendimento, User: rxd1n64hc9kbxh4dpugs60zt', migratedAt: new Date() },
+  { _id: 31, username: 'RM554989', operation: 'INSERT', table_name: 'goals', datetime: parseOracleTimestamp('20/11/25 23:57:14,667146000'), old_value: '', new_value: 'ID: p1yn8eg18utvvhhyxus2idne, Title: Tornar-se Product Manager especializado em produtos digitais, User: gfh5qmn0dyspc2bkeayecgyg', migratedAt: new Date() },
+  { _id: 32, username: 'RM554989', operation: 'INSERT', table_name: 'goals', datetime: parseOracleTimestamp('20/11/25 23:57:14,667841000'), old_value: '', new_value: 'ID: ize5a921ci1asv4xqfz3nz5i, Title: Dominar pipelines de CI/CD e infraestrutura como código, User: ow0l9q3y2kx3jh7gy3qz96ot', migratedAt: new Date() },
+  { _id: 33, username: 'RM554989', operation: 'INSERT', table_name: 'goals', datetime: parseOracleTimestamp('20/11/25 23:57:14,668516000'), old_value: '', new_value: 'ID: 0lh5i1txq2j9d9tb2lwd3bme, Title: Especializar-se em segurança de aplicações web e cloud, User: u5w97o0v17gq3go69fila9r2', migratedAt: new Date() },
+  { _id: 34, username: 'RM554989', operation: 'INSERT', table_name: 'goals', datetime: parseOracleTimestamp('20/11/25 23:57:14,670016000'), old_value: '', new_value: 'ID: 0iww2jm8al1i1mptbbawvnyj, Title: Arquitetar soluções cloud escaláveis e resilientes, User: 3e4ccdz9rnl74tjui4kcoldy', migratedAt: new Date() },
+  { _id: 35, username: 'RM554989', operation: 'INSERT', table_name: 'goals', datetime: parseOracleTimestamp('20/11/25 23:57:14,670792000'), old_value: '', new_value: 'ID: rl7g1imqt3rab6vqeai4l8u4, Title: Tornar-se Agile Coach e facilitador de transformação digital, User: 8zaa55mo9rcarpvilrnx0yri', migratedAt: new Date() },
+  { _id: 36, username: 'RM554989', operation: 'INSERT', table_name: 'goals', datetime: parseOracleTimestamp('20/11/25 23:57:14,671512000'), old_value: '', new_value: 'ID: mwzopbohut2uszoufij2ia9g, Title: Dominar Machine Learning para análise de dados empresariais, User: atoolur234c89cor4n7m943u', migratedAt: new Date() },
+  { _id: 37, username: 'RM554989', operation: 'INSERT', table_name: 'weekly_plans', datetime: parseOracleTimestamp('20/11/25 23:57:14,689426000'), old_value: '', new_value: 'ID: cir6lie48wvgj0xemkvtvaaj, Goal: my0eau79ioogp4g3me8rs90g, Weeks: 12', migratedAt: new Date() },
+  { _id: 38, username: 'RM554989', operation: 'INSERT', table_name: 'weekly_plans', datetime: parseOracleTimestamp('20/11/25 23:57:14,690473000'), old_value: '', new_value: 'ID: jrxu8tbo5gl0ksbsfo11pcyr, Goal: my0eau79ioogp4g3me8rs90g, Weeks: 12', migratedAt: new Date() },
+  { _id: 39, username: 'RM554989', operation: 'INSERT', table_name: 'weekly_plans', datetime: parseOracleTimestamp('20/11/25 23:57:14,691228000'), old_value: '', new_value: 'ID: s4l4baql0erk2fi3377tjzws, Goal: 5laztk2mhetleo1cjrep7vkg, Weeks: 16', migratedAt: new Date() },
+  { _id: 40, username: 'RM554989', operation: 'INSERT', table_name: 'weekly_plans', datetime: parseOracleTimestamp('20/11/25 23:57:14,691971000'), old_value: '', new_value: 'ID: ymlbcy11m9oatr0vl2acykm9, Goal: 5laztk2mhetleo1cjrep7vkg, Weeks: 16', migratedAt: new Date() },
+  { _id: 41, username: 'RM554989', operation: 'INSERT', table_name: 'weekly_plans', datetime: parseOracleTimestamp('20/11/25 23:57:14,692675000'), old_value: '', new_value: 'ID: lylz1kahgx5ezhccd5kmw9oe, Goal: s63s4t0h904t50lpt8rui86v, Weeks: 8', migratedAt: new Date() },
+  { _id: 42, username: 'RM554989', operation: 'INSERT', table_name: 'weekly_plans', datetime: parseOracleTimestamp('20/11/25 23:57:14,693681000'), old_value: '', new_value: 'ID: z7w798raaw04928twkeiz3xp, Goal: wd6pubmnh3hn4tug4n49eds3, Weeks: 10', migratedAt: new Date() },
+  { _id: 43, username: 'RM554989', operation: 'INSERT', table_name: 'weekly_plans', datetime: parseOracleTimestamp('20/11/25 23:57:14,694410000'), old_value: '', new_value: 'ID: ylplj0dbv7x1jshhjw8y9bv0, Goal: pw9gth2e908ouduhuc6zj5wn, Weeks: 6', migratedAt: new Date() },
+  { _id: 44, username: 'RM554989', operation: 'INSERT', table_name: 'weekly_plans', datetime: parseOracleTimestamp('20/11/25 23:57:14,695203000'), old_value: '', new_value: 'ID: fpvl2ctoibjjzvbwunvjkg05, Goal: llunbopcz6weifsguf2oweno, Weeks: 8', migratedAt: new Date() },
+  { _id: 45, username: 'RM554989', operation: 'INSERT', table_name: 'weekly_plans', datetime: parseOracleTimestamp('20/11/25 23:57:14,695912000'), old_value: '', new_value: 'ID: 6c7y4jf40axb3xq496a9dj33, Goal: ize5a921ci1asv4xqfz3nz5i, Weeks: 10', migratedAt: new Date() },
+  { _id: 46, username: 'RM554989', operation: 'INSERT', table_name: 'weekly_plans', datetime: parseOracleTimestamp('20/11/25 23:57:14,696618000'), old_value: '', new_value: 'ID: at8jilwcrtaxlzi9c6ksjrqt, Goal: 0iww2jm8al1i1mptbbawvnyj, Weeks: 12', migratedAt: new Date() },
+  { _id: 47, username: 'RM554989', operation: 'INSERT', table_name: 'tasks', datetime: parseOracleTimestamp('20/11/25 23:57:14,709516000'), old_value: '', new_value: 'ID: kvinptz7w58cu27huyyenz3c, Title: Assistir curso introdutório de Machine Learning, Completed: 0', migratedAt: new Date() },
+  { _id: 48, username: 'RM554989', operation: 'INSERT', table_name: 'tasks', datetime: parseOracleTimestamp('20/11/25 23:57:14,710406000'), old_value: '', new_value: 'ID: 2lsn1kmkegxx5ladp9z6rghw, Title: Instalar e configurar ambiente Python, Completed: 1', migratedAt: new Date() },
+  { _id: 49, username: 'RM554989', operation: 'INSERT', table_name: 'tasks', datetime: parseOracleTimestamp('20/11/25 23:57:14,711026000'), old_value: '', new_value: 'ID: u9xwgkvc600g3ch1cw0pd7l9, Title: Estudar conceitos de regressão linear e classificação, Completed: 0', migratedAt: new Date() },
+  { _id: 50, username: 'RM554989', operation: 'INSERT', table_name: 'tasks', datetime: parseOracleTimestamp('20/11/25 23:57:14,711617000'), old_value: '', new_value: 'ID: xob45bynkf97u8nb6o3ynh5r, Title: Implementar primeira rede neural com TensorFlow, Completed: 0', migratedAt: new Date() },
+  { _id: 51, username: 'RM554989', operation: 'INSERT', table_name: 'tasks', datetime: parseOracleTimestamp('20/11/25 23:57:14,712225000'), old_value: '', new_value: 'ID: vqmvdtvhozrclkph60eoav28, Title: Estudar arquiteturas de redes neurais convolucionais, Completed: 0', migratedAt: new Date() },
+  { _id: 52, username: 'RM554989', operation: 'INSERT', table_name: 'tasks', datetime: parseOracleTimestamp('20/11/25 23:57:14,712824000'), old_value: '', new_value: 'ID: buerfhqj5np8ukuy4qa6i2i3, Title: Configurar conta AWS e explorar console, Completed: 1', migratedAt: new Date() },
+  { _id: 53, username: 'RM554989', operation: 'INSERT', table_name: 'tasks', datetime: parseOracleTimestamp('20/11/25 23:57:14,713549000'), old_value: '', new_value: 'ID: f8co3xqwaqci0crjc7b6ua51, Title: Criar primeira instância EC2 e configurar segurança, Completed: 0', migratedAt: new Date() },
+  { _id: 54, username: 'RM554989', operation: 'INSERT', table_name: 'tasks', datetime: parseOracleTimestamp('20/11/25 23:57:14,714168000'), old_value: '', new_value: 'ID: hekiob1gsh5846664shkmc87, Title: Estudar serviços fundamentais do Azure, Completed: 0', migratedAt: new Date() },
+  { _id: 55, username: 'RM554989', operation: 'INSERT', table_name: 'tasks', datetime: parseOracleTimestamp('20/11/25 23:57:14,714577000'), old_value: '', new_value: 'ID: ob233eumcnwhzi2ty8hu8nf6, Title: Aprender técnicas de entrevista com usuários, Completed: 0', migratedAt: new Date() },
+  { _id: 56, username: 'RM554989', operation: 'INSERT', table_name: 'tasks', datetime: parseOracleTimestamp('20/11/25 23:57:14,714990000'), old_value: '', new_value: 'ID: pig7d3yvfdchfmsvvsftezps, Title: Criar personas e mapas de empatia, Completed: 0', migratedAt: new Date() },
+  { _id: 57, username: 'RM554989', operation: 'INSERT', table_name: 'tasks', datetime: parseOracleTimestamp('20/11/25 23:57:14,715373000'), old_value: '', new_value: 'ID: qo5kqd43j9068i7iryo4ulfj, Title: Dominar manipulação de dados com Pandas, Completed: 0', migratedAt: new Date() },
+  { _id: 58, username: 'RM554989', operation: 'INSERT', table_name: 'tasks', datetime: parseOracleTimestamp('20/11/25 23:57:14,715758000'), old_value: '', new_value: 'ID: qmecdvp6xbit7tppd2eevq4d, Title: Implementar modelo preditivo com Scikit-learn, Completed: 0', migratedAt: new Date() },
+  { _id: 59, username: 'RM554989', operation: 'INSERT', table_name: 'references', datetime: parseOracleTimestamp('20/11/25 23:57:14,723717000'), old_value: '', new_value: 'ID: huoyav261antyjz7b8q52nyv, Name: Coursera - Machine Learning, Task: kvinptz7w58cu27huyyenz3c', migratedAt: new Date() },
+  { _id: 60, username: 'RM554989', operation: 'INSERT', table_name: 'references', datetime: parseOracleTimestamp('20/11/25 23:57:14,724404000'), old_value: '', new_value: 'ID: rt9f29mx6t1dgh3obvcw2fme, Name: Python.org Tutorial, Task: 2lsn1kmkegxx5ladp9z6rghw', migratedAt: new Date() },
+  { _id: 61, username: 'RM554989', operation: 'INSERT', table_name: 'references', datetime: parseOracleTimestamp('20/11/25 23:57:14,725668000'), old_value: '', new_value: 'ID: 1uan3syydo32veuytex5rsld, Name: Scikit-learn Documentation, Task: u9xwgkvc600g3ch1cw0pd7l9', migratedAt: new Date() },
+  { _id: 62, username: 'RM554989', operation: 'INSERT', table_name: 'references', datetime: parseOracleTimestamp('20/11/25 23:57:14,726377000'), old_value: '', new_value: 'ID: usrusbzid9svsama7v61lncv, Name: TensorFlow Tutorials, Task: xob45bynkf97u8nb6o3ynh5r', migratedAt: new Date() },
+  { _id: 63, username: 'RM554989', operation: 'INSERT', table_name: 'references', datetime: parseOracleTimestamp('20/11/25 23:57:14,726879000'), old_value: '', new_value: 'ID: 0zrjxyilds7mun7hnmodf7zr, Name: Deep Learning Book, Task: vqmvdtvhozrclkph60eoav28', migratedAt: new Date() },
+  { _id: 64, username: 'RM554989', operation: 'INSERT', table_name: 'references', datetime: parseOracleTimestamp('20/11/25 23:57:14,727370000'), old_value: '', new_value: 'ID: zuw36nyki84gz7thsq7cokil, Name: AWS Getting Started Guide, Task: buerfhqj5np8ukuy4qa6i2i3', migratedAt: new Date() },
+  { _id: 65, username: 'RM554989', operation: 'INSERT', table_name: 'references', datetime: parseOracleTimestamp('20/11/25 23:57:14,727821000'), old_value: '', new_value: 'ID: 7l5rl1cpkdcuc6vlr2sjlro6, Name: AWS EC2 Documentation, Task: f8co3xqwaqci0crjc7b6ua51', migratedAt: new Date() },
+  { _id: 66, username: 'RM554989', operation: 'INSERT', table_name: 'references', datetime: parseOracleTimestamp('20/11/25 23:57:14,728303000'), old_value: '', new_value: 'ID: 3mgth72x5rkif10sc7014fs9, Name: Microsoft Azure Learn, Task: hekiob1gsh5846664shkmc87', migratedAt: new Date() },
+  { _id: 67, username: 'RM554989', operation: 'INSERT', table_name: 'references', datetime: parseOracleTimestamp('20/11/25 23:57:14,728775000'), old_value: '', new_value: 'ID: jqmz1xh0ybatz5dgvn2hym4t, Name: IDEO Design Thinking Toolkit, Task: ob233eumcnwhzi2ty8hu8nf6', migratedAt: new Date() },
+  { _id: 68, username: 'RM554989', operation: 'INSERT', table_name: 'references', datetime: parseOracleTimestamp('20/11/25 23:57:14,729230000'), old_value: '', new_value: 'ID: zjagw75c2sj9vanttl14w3yx, Name: Figma Design System, Task: pig7d3yvfdchfmsvvsftezps', migratedAt: new Date() },
+  { _id: 69, username: 'RM554989', operation: 'INSERT', table_name: 'references', datetime: parseOracleTimestamp('20/11/25 23:57:14,729685000'), old_value: '', new_value: 'ID: kt8srnt8zn5nvd2quksk5q0e, Name: Pandas Documentation, Task: qo5kqd43j9068i7iryo4ulfj', migratedAt: new Date() },
+  { _id: 70, username: 'RM554989', operation: 'INSERT', table_name: 'references', datetime: parseOracleTimestamp('20/11/25 23:57:14,730158000'), old_value: '', new_value: 'ID: yubkftha39yelpas5fmhdgad, Name: Scikit-learn User Guide, Task: qmecdvp6xbit7tppd2eevq4d', migratedAt: new Date() },
+  { _id: 73, username: 'RM554989', operation: 'INSERT', table_name: 'users', datetime: parseOracleTimestamp('22/11/25 18:47:37,841117000'), old_value: '', new_value: 'ID: f3f4b3727cba4234a8d57c61, Name: messagind, Email: messagin@example.com, Role: d117bnpa8b7c3hx8hl99zuv3', migratedAt: new Date() }
+]);
 
 db.roles.createIndex({ acronym: 1 }, { unique: true });
 db.roles.createIndex({ name: 1 });
 
-db.goals.createIndex({ 'user._id': 1 });
+db.users.createIndex({ email: 1 }, { unique: true });
+db.users.createIndex({ role_id: 1 });
+db.users.createIndex({ name: 1 });
+
+db.goals.createIndex({ user_id: 1 });
 db.goals.createIndex({ created_at: -1 });
 db.goals.createIndex({ title: 'text', experience: 'text' });
 db.goals.createIndex({ hours_per_day: 1, days_per_week: 1 });
+
+db.weekly_plans.createIndex({ goal_id: 1 });
+db.weekly_plans.createIndex({ week_start: 1, week_end: 1 });
+db.weekly_plans.createIndex({ created_at: -1 });
+
+db.tasks.createIndex({ weekly_plan_id: 1 });
+db.tasks.createIndex({ completed: 1 });
+db.tasks.createIndex({ difficulty: 1 });
+db.tasks.createIndex({ created_at: -1 });
+
+db.references.createIndex({ task_id: 1 });
+db.references.createIndex({ link: 1 });
 
 db.logs.createIndex({ datetime: -1 });
 db.logs.createIndex({ table_name: 1, datetime: -1 });
