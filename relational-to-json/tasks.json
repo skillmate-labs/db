@@ -1,0 +1,162 @@
+{
+  "results" : [
+    {
+      "columns" : [
+        {
+          "name" : "ID",
+          "type" : "CHAR"
+        },
+        {
+          "name" : "TITLE",
+          "type" : "VARCHAR2"
+        },
+        {
+          "name" : "COMPLETED",
+          "type" : "NUMBER"
+        },
+        {
+          "name" : "DIFFICULTY",
+          "type" : "NUMBER"
+        },
+        {
+          "name" : "CREATED_AT",
+          "type" : "TIMESTAMP"
+        },
+        {
+          "name" : "WEEKLY_PLAN_ID",
+          "type" : "CHAR"
+        },
+        {
+          "name" : "CREATED_BY",
+          "type" : "CHAR"
+        },
+        {
+          "name" : "UPDATED_BY",
+          "type" : "CHAR"
+        }
+      ],
+      "items" : [
+        {
+          "id" : "kvinptz7w58cu27huyyenz3c",
+          "title" : "Assistir curso introdutório de Machine Learning",
+          "completed" : 0,
+          "difficulty" : 0,
+          "created_at" : "20/11/25 23:57:14,707621000",
+          "weekly_plan_id" : "cir6lie48wvgj0xemkvtvaaj",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "2lsn1kmkegxx5ladp9z6rghw",
+          "title" : "Instalar e configurar ambiente Python",
+          "completed" : 1,
+          "difficulty" : 0,
+          "created_at" : "20/11/25 23:57:14,710224000",
+          "weekly_plan_id" : "cir6lie48wvgj0xemkvtvaaj",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "u9xwgkvc600g3ch1cw0pd7l9",
+          "title" : "Estudar conceitos de regressão linear e classificação",
+          "completed" : 0,
+          "difficulty" : 1,
+          "created_at" : "20/11/25 23:57:14,710850000",
+          "weekly_plan_id" : "cir6lie48wvgj0xemkvtvaaj",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "xob45bynkf97u8nb6o3ynh5r",
+          "title" : "Implementar primeira rede neural com TensorFlow",
+          "completed" : 0,
+          "difficulty" : 2,
+          "created_at" : "20/11/25 23:57:14,711457000",
+          "weekly_plan_id" : "jrxu8tbo5gl0ksbsfo11pcyr",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "vqmvdtvhozrclkph60eoav28",
+          "title" : "Estudar arquiteturas de redes neurais convolucionais",
+          "completed" : 0,
+          "difficulty" : 1,
+          "created_at" : "20/11/25 23:57:14,712061000",
+          "weekly_plan_id" : "jrxu8tbo5gl0ksbsfo11pcyr",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "buerfhqj5np8ukuy4qa6i2i3",
+          "title" : "Configurar conta AWS e explorar console",
+          "completed" : 1,
+          "difficulty" : 0,
+          "created_at" : "20/11/25 23:57:14,712657000",
+          "weekly_plan_id" : "s4l4baql0erk2fi3377tjzws",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "f8co3xqwaqci0crjc7b6ua51",
+          "title" : "Criar primeira instância EC2 e configurar segurança",
+          "completed" : 0,
+          "difficulty" : 1,
+          "created_at" : "20/11/25 23:57:14,713382000",
+          "weekly_plan_id" : "s4l4baql0erk2fi3377tjzws",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "hekiob1gsh5846664shkmc87",
+          "title" : "Estudar serviços fundamentais do Azure",
+          "completed" : 0,
+          "difficulty" : 1,
+          "created_at" : "20/11/25 23:57:14,714027000",
+          "weekly_plan_id" : "ymlbcy11m9oatr0vl2acykm9",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "ob233eumcnwhzi2ty8hu8nf6",
+          "title" : "Aprender técnicas de entrevista com usuários",
+          "completed" : 0,
+          "difficulty" : 1,
+          "created_at" : "20/11/25 23:57:14,714467000",
+          "weekly_plan_id" : "lylz1kahgx5ezhccd5kmw9oe",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "pig7d3yvfdchfmsvvsftezps",
+          "title" : "Criar personas e mapas de empatia",
+          "completed" : 0,
+          "difficulty" : 0,
+          "created_at" : "20/11/25 23:57:14,714863000",
+          "weekly_plan_id" : "lylz1kahgx5ezhccd5kmw9oe",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "qo5kqd43j9068i7iryo4ulfj",
+          "title" : "Dominar manipulação de dados com Pandas",
+          "completed" : 0,
+          "difficulty" : 1,
+          "created_at" : "20/11/25 23:57:14,715266000",
+          "weekly_plan_id" : "z7w798raaw04928twkeiz3xp",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "qmecdvp6xbit7tppd2eevq4d",
+          "title" : "Implementar modelo preditivo com Scikit-learn",
+          "completed" : 0,
+          "difficulty" : 2,
+          "created_at" : "20/11/25 23:57:14,715652000",
+          "weekly_plan_id" : "z7w798raaw04928twkeiz3xp",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        }
+      ]
+    }
+  ]
+}

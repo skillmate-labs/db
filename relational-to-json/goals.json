@@ -1,0 +1,194 @@
+{
+  "results" : [
+    {
+      "columns" : [
+        {
+          "name" : "ID",
+          "type" : "CHAR"
+        },
+        {
+          "name" : "TITLE",
+          "type" : "VARCHAR2"
+        },
+        {
+          "name" : "EXPERIENCE",
+          "type" : "VARCHAR2"
+        },
+        {
+          "name" : "HOURS_PER_DAY",
+          "type" : "NUMBER"
+        },
+        {
+          "name" : "DAYS_PER_WEEK",
+          "type" : "NUMBER"
+        },
+        {
+          "name" : "CREATED_AT",
+          "type" : "TIMESTAMP"
+        },
+        {
+          "name" : "UPDATED_AT",
+          "type" : "TIMESTAMP"
+        },
+        {
+          "name" : "USER_ID",
+          "type" : "CHAR"
+        },
+        {
+          "name" : "CREATED_BY",
+          "type" : "CHAR"
+        },
+        {
+          "name" : "UPDATED_BY",
+          "type" : "CHAR"
+        }
+      ],
+      "items" : [
+        {
+          "id" : "my0eau79ioogp4g3me8rs90g",
+          "title" : "Dominar Machine Learning e Deep Learning para aplicações empresariais",
+          "experience" : "Tenho experiência básica em Python e estatística. Trabalho com análise de dados há 2 anos e quero migrar para área de IA. Preciso aprender frameworks como TensorFlow, PyTorch e entender modelos de redes neurais.",
+          "hours_per_day" : 4,
+          "days_per_week" : 5,
+          "created_at" : "20/11/25 23:57:14,661825000",
+          "updated_at" : "",
+          "user_id" : "7vou9rja5l4uaboe3mz9qhvd",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "5laztk2mhetleo1cjrep7vkg",
+          "title" : "Tornar-se Cloud Architect certificado em AWS e Azure",
+          "experience" : "Sou desenvolvedor backend com 5 anos de experiência. Já trabalho com Docker e Kubernetes, mas preciso dominar arquiteturas cloud nativas, serverless e multi-cloud. Objetivo é obter certificações AWS Solutions Architect e Azure Architect.",
+          "hours_per_day" : 3,
+          "days_per_week" : 6,
+          "created_at" : "20/11/25 23:57:14,663928000",
+          "updated_at" : "",
+          "user_id" : "divz79pcoon41em8xesrp54h",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "s63s4t0h904t50lpt8rui86v",
+          "title" : "Especializar-se em Design Thinking e prototipação avançada",
+          "experience" : "Designer gráfico há 3 anos, migrando para UX/UI. Preciso aprender metodologias de pesquisa com usuários, criação de personas, wireframes, prototipação em Figma e testes de usabilidade. Foco em produtos SaaS e mobile.",
+          "hours_per_day" : 5,
+          "days_per_week" : 4,
+          "created_at" : "20/11/25 23:57:14,664426000",
+          "updated_at" : "",
+          "user_id" : "6w0fwavmzo95hm4xpe7elgl0",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "wd6pubmnh3hn4tug4n49eds3",
+          "title" : "Dominar análise preditiva e visualização de dados avançada",
+          "experience" : "Analista de dados júnior, conheço SQL e Excel avançado. Quero evoluir para Data Scientist, aprendendo Python para análise, bibliotecas como Pandas e Scikit-learn, e ferramentas como Tableau e Power BI para dashboards executivos.",
+          "hours_per_day" : 4,
+          "days_per_week" : 5,
+          "created_at" : "20/11/25 23:57:14,664911000",
+          "updated_at" : "",
+          "user_id" : "7vou9rja5l4uaboe3mz9qhvd",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "pw9gth2e908ouduhuc6zj5wn",
+          "title" : "Certificar-se como Scrum Master e Product Owner",
+          "experience" : "Gerente de projetos tradicional há 4 anos. Preciso migrar para metodologias ágeis. Objetivo é obter certificação Scrum Master (PSM) e Product Owner (PSPO), além de dominar ferramentas como Jira e técnicas de estimativa ágil.",
+          "hours_per_day" : 2,
+          "days_per_week" : 5,
+          "created_at" : "20/11/25 23:57:14,665517000",
+          "updated_at" : "",
+          "user_id" : "jqv0bf84iezwr5mv04pioj1j",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "llunbopcz6weifsguf2oweno",
+          "title" : "Desenvolver chatbots e sistemas de NLP para atendimento",
+          "experience" : "Desenvolvedor full-stack com conhecimento em APIs REST. Quero criar soluções de IA conversacional usando OpenAI GPT, processamento de linguagem natural e integração com sistemas de CRM. Foco em automação de atendimento ao cliente.",
+          "hours_per_day" : 6,
+          "days_per_week" : 4,
+          "created_at" : "20/11/25 23:57:14,666252000",
+          "updated_at" : "",
+          "user_id" : "rxd1n64hc9kbxh4dpugs60zt",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "p1yn8eg18utvvhhyxus2idne",
+          "title" : "Tornar-se Product Manager especializado em produtos digitais",
+          "experience" : "Analista de negócios com 3 anos de experiência. Preciso aprender estratégia de produto, roadmap, métricas de produto (KPIs), A/B testing, e como trabalhar com equipes de desenvolvimento. Objetivo é liderar produtos SaaS.",
+          "hours_per_day" : 3,
+          "days_per_week" : 5,
+          "created_at" : "20/11/25 23:57:14,666979000",
+          "updated_at" : "",
+          "user_id" : "gfh5qmn0dyspc2bkeayecgyg",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "ize5a921ci1asv4xqfz3nz5i",
+          "title" : "Dominar pipelines de CI/CD e infraestrutura como código",
+          "experience" : "Sysadmin migrando para DevOps. Conheço Linux e scripts bash. Preciso aprender GitLab CI, Jenkins, Terraform, Ansible, monitoramento com Prometheus e Grafana. Foco em automação completa de deploy e infraestrutura.",
+          "hours_per_day" : 5,
+          "days_per_week" : 5,
+          "created_at" : "20/11/25 23:57:14,667682000",
+          "updated_at" : "",
+          "user_id" : "ow0l9q3y2kx3jh7gy3qz96ot",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "0lh5i1txq2j9d9tb2lwd3bme",
+          "title" : "Especializar-se em segurança de aplicações web e cloud",
+          "experience" : "Desenvolvedor com interesse em segurança. Quero aprender OWASP Top 10, testes de penetração, análise de vulnerabilidades, segurança em APIs, e compliance (LGPD, GDPR). Objetivo é trabalhar como Security Engineer.",
+          "hours_per_day" : 4,
+          "days_per_week" : 4,
+          "created_at" : "20/11/25 23:57:14,668362000",
+          "updated_at" : "",
+          "user_id" : "u5w97o0v17gq3go69fila9r2",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "0iww2jm8al1i1mptbbawvnyj",
+          "title" : "Arquitetar soluções cloud escaláveis e resilientes",
+          "experience" : "Arquiteto de software com 7 anos de experiência. Preciso evoluir para cloud-native, aprendendo padrões de arquitetura (microservices, event-driven), serverless, containers, service mesh, e otimização de custos cloud.",
+          "hours_per_day" : 3,
+          "days_per_week" : 6,
+          "created_at" : "20/11/25 23:57:14,669796000",
+          "updated_at" : "",
+          "user_id" : "3e4ccdz9rnl74tjui4kcoldy",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "rl7g1imqt3rab6vqeai4l8u4",
+          "title" : "Tornar-se Agile Coach e facilitador de transformação digital",
+          "experience" : "Scrum Master há 2 anos. Quero evoluir para Agile Coach, aprendendo técnicas de coaching, facilitação de workshops, transformação organizacional, e frameworks como SAFe e LeSS. Foco em ajudar empresas na transição ágil.",
+          "hours_per_day" : 2,
+          "days_per_week" : 5,
+          "created_at" : "20/11/25 23:57:14,670592000",
+          "updated_at" : "",
+          "user_id" : "8zaa55mo9rcarpvilrnx0yri",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "mwzopbohut2uszoufij2ia9g",
+          "title" : "Dominar Machine Learning para análise de dados empresariais",
+          "experience" : "Estatístico com conhecimento em R. Preciso migrar para Python, aprender algoritmos de ML (regressão, classificação, clustering), deep learning básico, e como implementar modelos em produção. Foco em dados de negócio.",
+          "hours_per_day" : 5,
+          "days_per_week" : 5,
+          "created_at" : "20/11/25 23:57:14,671335000",
+          "updated_at" : "",
+          "user_id" : "atoolur234c89cor4n7m943u",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,146 @@
+{
+  "results" : [
+    {
+      "columns" : [
+        {
+          "name" : "ID",
+          "type" : "CHAR"
+        },
+        {
+          "name" : "NAME",
+          "type" : "VARCHAR2"
+        },
+        {
+          "name" : "DESCRIPTION",
+          "type" : "VARCHAR2"
+        },
+        {
+          "name" : "LINK",
+          "type" : "VARCHAR2"
+        },
+        {
+          "name" : "TASK_ID",
+          "type" : "CHAR"
+        },
+        {
+          "name" : "CREATED_BY",
+          "type" : "CHAR"
+        },
+        {
+          "name" : "UPDATED_BY",
+          "type" : "CHAR"
+        }
+      ],
+      "items" : [
+        {
+          "id" : "huoyav261antyjz7b8q52nyv",
+          "name" : "Coursera - Machine Learning",
+          "description" : "Curso completo de ML",
+          "link" : "https://www.coursera.org/learn/machine-learning",
+          "task_id" : "kvinptz7w58cu27huyyenz3c",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "rt9f29mx6t1dgh3obvcw2fme",
+          "name" : "Python.org Tutorial",
+          "description" : "Tutorial oficial do Python",
+          "link" : "https://docs.python.org/3/tutorial/",
+          "task_id" : "2lsn1kmkegxx5ladp9z6rghw",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "1uan3syydo32veuytex5rsld",
+          "name" : "Scikit-learn Documentation",
+          "description" : "Documentação oficial do Scikit-learn",
+          "link" : "https://scikit-learn.org/stable/",
+          "task_id" : "u9xwgkvc600g3ch1cw0pd7l9",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "usrusbzid9svsama7v61lncv",
+          "name" : "TensorFlow Tutorials",
+          "description" : "Tutoriais oficiais do TensorFlow",
+          "link" : "https://www.tensorflow.org/tutorials",
+          "task_id" : "xob45bynkf97u8nb6o3ynh5r",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "0zrjxyilds7mun7hnmodf7zr",
+          "name" : "Deep Learning Book",
+          "description" : "Livro sobre Deep Learning",
+          "link" : "https://www.deeplearningbook.org/",
+          "task_id" : "vqmvdtvhozrclkph60eoav28",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "zuw36nyki84gz7thsq7cokil",
+          "name" : "AWS Getting Started Guide",
+          "description" : "Guia de início rápido da AWS",
+          "link" : "https://aws.amazon.com/getting-started/",
+          "task_id" : "buerfhqj5np8ukuy4qa6i2i3",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "7l5rl1cpkdcuc6vlr2sjlro6",
+          "name" : "AWS EC2 Documentation",
+          "description" : "Documentação do Amazon EC2",
+          "link" : "https://docs.aws.amazon.com/ec2/",
+          "task_id" : "f8co3xqwaqci0crjc7b6ua51",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "3mgth72x5rkif10sc7014fs9",
+          "name" : "Microsoft Azure Learn",
+          "description" : "Plataforma de aprendizado do Azure",
+          "link" : "https://learn.microsoft.com/azure/",
+          "task_id" : "hekiob1gsh5846664shkmc87",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "jqmz1xh0ybatz5dgvn2hym4t",
+          "name" : "IDEO Design Thinking Toolkit",
+          "description" : "Kit de ferramentas de Design Thinking",
+          "link" : "https://www.ideou.com/pages/design-thinking",
+          "task_id" : "ob233eumcnwhzi2ty8hu8nf6",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "zjagw75c2sj9vanttl14w3yx",
+          "name" : "Figma Design System",
+          "description" : "Guia de sistemas de design no Figma",
+          "link" : "https://www.figma.com/design-systems/",
+          "task_id" : "pig7d3yvfdchfmsvvsftezps",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "kt8srnt8zn5nvd2quksk5q0e",
+          "name" : "Pandas Documentation",
+          "description" : "Documentação oficial do Pandas",
+          "link" : "https://pandas.pydata.org/docs/",
+          "task_id" : "qo5kqd43j9068i7iryo4ulfj",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "yubkftha39yelpas5fmhdgad",
+          "name" : "Scikit-learn User Guide",
+          "description" : "Guia do usuário do Scikit-learn",
+          "link" : "https://scikit-learn.org/stable/user_guide.html",
+          "task_id" : "qmecdvp6xbit7tppd2eevq4d",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        }
+      ]
+    }
+  ]
+}

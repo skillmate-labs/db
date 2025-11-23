@@ -1,0 +1,156 @@
+{
+  "results" : [
+    {
+      "columns" : [
+        {
+          "name" : "ID",
+          "type" : "CHAR"
+        },
+        {
+          "name" : "WEEK_START",
+          "type" : "TIMESTAMP"
+        },
+        {
+          "name" : "WEEK_END",
+          "type" : "TIMESTAMP"
+        },
+        {
+          "name" : "WEEKS_TO_COMPLETE",
+          "type" : "NUMBER"
+        },
+        {
+          "name" : "AI_PROMPT",
+          "type" : "VARCHAR2"
+        },
+        {
+          "name" : "GOAL_ID",
+          "type" : "CHAR"
+        },
+        {
+          "name" : "CREATED_AT",
+          "type" : "TIMESTAMP"
+        },
+        {
+          "name" : "CREATED_BY",
+          "type" : "CHAR"
+        },
+        {
+          "name" : "UPDATED_BY",
+          "type" : "CHAR"
+        }
+      ],
+      "items" : [
+        {
+          "id" : "cir6lie48wvgj0xemkvtvaaj",
+          "week_start" : "01/01/24 00:00:00,000000000",
+          "week_end" : "07/01/24 23:59:59,000000000",
+          "weeks_to_complete" : 12,
+          "ai_prompt" : "Criar plano de aprendizado semanal para Machine Learning",
+          "goal_id" : "my0eau79ioogp4g3me8rs90g",
+          "created_at" : "20/11/25 23:57:14,687343000",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "jrxu8tbo5gl0ksbsfo11pcyr",
+          "week_start" : "08/01/24 00:00:00,000000000",
+          "week_end" : "14/01/24 23:59:59,000000000",
+          "weeks_to_complete" : 12,
+          "ai_prompt" : "Aprofundar em Deep Learning",
+          "goal_id" : "my0eau79ioogp4g3me8rs90g",
+          "created_at" : "20/11/25 23:57:14,690229000",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "s4l4baql0erk2fi3377tjzws",
+          "week_start" : "15/01/24 00:00:00,000000000",
+          "week_end" : "21/01/24 23:59:59,000000000",
+          "weeks_to_complete" : 16,
+          "ai_prompt" : "Plano de estudos AWS",
+          "goal_id" : "5laztk2mhetleo1cjrep7vkg",
+          "created_at" : "20/11/25 23:57:14,691002000",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "ymlbcy11m9oatr0vl2acykm9",
+          "week_start" : "22/01/24 00:00:00,000000000",
+          "week_end" : "28/01/24 23:59:59,000000000",
+          "weeks_to_complete" : 16,
+          "ai_prompt" : "Arquitetura Azure e Multi-Cloud",
+          "goal_id" : "5laztk2mhetleo1cjrep7vkg",
+          "created_at" : "20/11/25 23:57:14,691722000",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "lylz1kahgx5ezhccd5kmw9oe",
+          "week_start" : "01/02/24 00:00:00,000000000",
+          "week_end" : "07/02/24 23:59:59,000000000",
+          "weeks_to_complete" : 8,
+          "ai_prompt" : "Fundamentos de Design Thinking",
+          "goal_id" : "s63s4t0h904t50lpt8rui86v",
+          "created_at" : "20/11/25 23:57:14,692459000",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "z7w798raaw04928twkeiz3xp",
+          "week_start" : "08/02/24 00:00:00,000000000",
+          "week_end" : "14/02/24 23:59:59,000000000",
+          "weeks_to_complete" : 10,
+          "ai_prompt" : "Python para Análise de Dados",
+          "goal_id" : "wd6pubmnh3hn4tug4n49eds3",
+          "created_at" : "20/11/25 23:57:14,693466000",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "ylplj0dbv7x1jshhjw8y9bv0",
+          "week_start" : "15/02/24 00:00:00,000000000",
+          "week_end" : "21/02/24 23:59:59,000000000",
+          "weeks_to_complete" : 6,
+          "ai_prompt" : "Preparação para Certificação Scrum Master",
+          "goal_id" : "pw9gth2e908ouduhuc6zj5wn",
+          "created_at" : "20/11/25 23:57:14,694186000",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "fpvl2ctoibjjzvbwunvjkg05",
+          "week_start" : "22/02/24 00:00:00,000000000",
+          "week_end" : "28/02/24 23:59:59,000000000",
+          "weeks_to_complete" : 8,
+          "ai_prompt" : "Desenvolvimento de Chatbots com OpenAI",
+          "goal_id" : "llunbopcz6weifsguf2oweno",
+          "created_at" : "20/11/25 23:57:14,694956000",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "6c7y4jf40axb3xq496a9dj33",
+          "week_start" : "01/03/24 00:00:00,000000000",
+          "week_end" : "07/03/24 23:59:59,000000000",
+          "weeks_to_complete" : 10,
+          "ai_prompt" : "Pipelines CI/CD com GitLab e Jenkins",
+          "goal_id" : "ize5a921ci1asv4xqfz3nz5i",
+          "created_at" : "20/11/25 23:57:14,695675000",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        },
+        {
+          "id" : "at8jilwcrtaxlzi9c6ksjrqt",
+          "week_start" : "08/03/24 00:00:00,000000000",
+          "week_end" : "14/03/24 23:59:59,000000000",
+          "weeks_to_complete" : 12,
+          "ai_prompt" : "Arquitetura Microservices e Serverless",
+          "goal_id" : "0iww2jm8al1i1mptbbawvnyj",
+          "created_at" : "20/11/25 23:57:14,696407000",
+          "created_by" : "ir3k8h61ib1dng3nc3d7eewc",
+          "updated_by" : ""
+        }
+      ]
+    }
+  ]
+}

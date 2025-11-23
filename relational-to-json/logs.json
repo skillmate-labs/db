@@ -1,0 +1,704 @@
+{
+  "results" : [
+    {
+      "columns" : [
+        {
+          "name" : "ID",
+          "type" : "NUMBER"
+        },
+        {
+          "name" : "USERNAME",
+          "type" : "VARCHAR2"
+        },
+        {
+          "name" : "OPERATION",
+          "type" : "VARCHAR2"
+        },
+        {
+          "name" : "TABLE_NAME",
+          "type" : "VARCHAR2"
+        },
+        {
+          "name" : "DATETIME",
+          "type" : "TIMESTAMP"
+        },
+        {
+          "name" : "OLD_VALUE",
+          "type" : "VARCHAR2"
+        },
+        {
+          "name" : "NEW_VALUE",
+          "type" : "VARCHAR2"
+        }
+      ],
+      "items" : [
+        {
+          "id" : 71,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "users",
+          "datetime" : "21/11/25 00:13:08,932642000",
+          "old_value" : "",
+          "new_value" : "ID: 5b2df654f28948ac8076f280, Name: Ian Braga, Email: ian@example.com, Role: farkv24sj89zjqw452snwtvp"
+        },
+        {
+          "id" : 72,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "users",
+          "datetime" : "21/11/25 00:17:33,737857000",
+          "old_value" : "",
+          "new_value" : "ID: 8dbcbbc0257c4af58ae7e6be, Name: Ian Admin, Email: ian.admin@example.com, Role: d117bnpa8b7c3hx8hl99zuv3"
+        },
+        {
+          "id" : 74,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "users",
+          "datetime" : "23/11/25 00:55:54,239094000",
+          "old_value" : "",
+          "new_value" : "ID: 5d31bc8bd48e4cd1bde254a1, Name: messagind, Email: messagin-ui@example.com, Role: d117bnpa8b7c3hx8hl99zuv3"
+        },
+        {
+          "id" : 1,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "roles",
+          "datetime" : "20/11/25 23:57:14,520032000",
+          "old_value" : "",
+          "new_value" : "ID: d117bnpa8b7c3hx8hl99zuv3, Name: Administrador, Acronym: ADM"
+        },
+        {
+          "id" : 2,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "roles",
+          "datetime" : "20/11/25 23:57:14,521325000",
+          "old_value" : "",
+          "new_value" : "ID: farkv24sj89zjqw452snwtvp, Name: Desenvolvedor, Acronym: DEV"
+        },
+        {
+          "id" : 3,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "roles",
+          "datetime" : "20/11/25 23:57:14,521714000",
+          "old_value" : "",
+          "new_value" : "ID: 6mjmgruj1jhxfktia61cyk3c, Name: Designer UX/UI, Acronym: DSG"
+        },
+        {
+          "id" : 4,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "roles",
+          "datetime" : "20/11/25 23:57:14,522101000",
+          "old_value" : "",
+          "new_value" : "ID: dsmldgicn1x2ko1bhhmo1fc5, Name: Analista de Dados, Acronym: ANL"
+        },
+        {
+          "id" : 5,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "roles",
+          "datetime" : "20/11/25 23:57:14,522540000",
+          "old_value" : "",
+          "new_value" : "ID: ykqk3or95wyky2lea5ppzkjh, Name: Gerente de Projetos, Acronym: GPR"
+        },
+        {
+          "id" : 6,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "roles",
+          "datetime" : "20/11/25 23:57:14,522955000",
+          "old_value" : "",
+          "new_value" : "ID: derpp68232w6v0ciold9hdgi, Name: Especialista em IA, Acronym: IA"
+        },
+        {
+          "id" : 7,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "roles",
+          "datetime" : "20/11/25 23:57:14,523325000",
+          "old_value" : "",
+          "new_value" : "ID: c24qqmd2p70jkq2ypkhksnno, Name: Product Manager, Acronym: PM"
+        },
+        {
+          "id" : 8,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "roles",
+          "datetime" : "20/11/25 23:57:14,523701000",
+          "old_value" : "",
+          "new_value" : "ID: gso6oqqg7m56ibui0mf6g463, Name: DevOps Engineer, Acronym: DOE"
+        },
+        {
+          "id" : 9,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "roles",
+          "datetime" : "20/11/25 23:57:14,524090000",
+          "old_value" : "",
+          "new_value" : "ID: wkj0qtxjljm42u8nkvftrm7g, Name: Cybersecurity, Acronym: CS"
+        },
+        {
+          "id" : 10,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "roles",
+          "datetime" : "20/11/25 23:57:14,524473000",
+          "old_value" : "",
+          "new_value" : "ID: wngzhji33yx49epivi1bvtva, Name: Cloud Architect, Acronym: CA"
+        },
+        {
+          "id" : 11,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "roles",
+          "datetime" : "20/11/25 23:57:14,524829000",
+          "old_value" : "",
+          "new_value" : "ID: 7lqyh49iyqpy36ce7az2yow6, Name: Scrum Master, Acronym: SM"
+        },
+        {
+          "id" : 12,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "roles",
+          "datetime" : "20/11/25 23:57:14,525174000",
+          "old_value" : "",
+          "new_value" : "ID: 47vd6thuzwnodibredt2asnt, Name: Data Scientist, Acronym: DS"
+        },
+        {
+          "id" : 13,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "users",
+          "datetime" : "20/11/25 23:57:14,648489000",
+          "old_value" : "",
+          "new_value" : "ID: ir3k8h61ib1dng3nc3d7eewc, Name: Ana Silva, Email: ana.silva@skillmate.com, Role: d117bnpa8b7c3hx8hl99zuv3"
+        },
+        {
+          "id" : 14,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "users",
+          "datetime" : "20/11/25 23:57:14,649147000",
+          "old_value" : "",
+          "new_value" : "ID: divz79pcoon41em8xesrp54h, Name: Carlos Mendes, Email: carlos.mendes@skillmate.com, Role: farkv24sj89zjqw452snwtvp"
+        },
+        {
+          "id" : 15,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "users",
+          "datetime" : "20/11/25 23:57:14,649551000",
+          "old_value" : "",
+          "new_value" : "ID: 6w0fwavmzo95hm4xpe7elgl0, Name: Mariana Costa, Email: mariana.costa@skillmate.com, Role: 6mjmgruj1jhxfktia61cyk3c"
+        },
+        {
+          "id" : 16,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "users",
+          "datetime" : "20/11/25 23:57:14,649960000",
+          "old_value" : "",
+          "new_value" : "ID: 7vou9rja5l4uaboe3mz9qhvd, Name: João Santos, Email: joao.santos@skillmate.com, Role: dsmldgicn1x2ko1bhhmo1fc5"
+        },
+        {
+          "id" : 17,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "users",
+          "datetime" : "20/11/25 23:57:14,650362000",
+          "old_value" : "",
+          "new_value" : "ID: jqv0bf84iezwr5mv04pioj1j, Name: Fernanda Lima, Email: fernanda.lima@skillmate.com, Role: ykqk3or95wyky2lea5ppzkjh"
+        },
+        {
+          "id" : 18,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "users",
+          "datetime" : "20/11/25 23:57:14,650757000",
+          "old_value" : "",
+          "new_value" : "ID: rxd1n64hc9kbxh4dpugs60zt, Name: Ricardo Alves, Email: ricardo.alves@skillmate.com, Role: derpp68232w6v0ciold9hdgi"
+        },
+        {
+          "id" : 19,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "users",
+          "datetime" : "20/11/25 23:57:14,651133000",
+          "old_value" : "",
+          "new_value" : "ID: gfh5qmn0dyspc2bkeayecgyg, Name: Juliana Rocha, Email: juliana.rocha@skillmate.com, Role: c24qqmd2p70jkq2ypkhksnno"
+        },
+        {
+          "id" : 20,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "users",
+          "datetime" : "20/11/25 23:57:14,651475000",
+          "old_value" : "",
+          "new_value" : "ID: ow0l9q3y2kx3jh7gy3qz96ot, Name: Pedro Oliveira, Email: pedro.oliveira@skillmate.com, Role: gso6oqqg7m56ibui0mf6g463"
+        },
+        {
+          "id" : 21,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "users",
+          "datetime" : "20/11/25 23:57:14,651931000",
+          "old_value" : "",
+          "new_value" : "ID: u5w97o0v17gq3go69fila9r2, Name: Larissa Ferreira, Email: larissa.ferreira@skillmate.com, Role: wkj0qtxjljm42u8nkvftrm7g"
+        },
+        {
+          "id" : 22,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "users",
+          "datetime" : "20/11/25 23:57:14,652493000",
+          "old_value" : "",
+          "new_value" : "ID: 3e4ccdz9rnl74tjui4kcoldy, Name: Bruno Souza, Email: bruno.souza@skillmate.com, Role: wngzhji33yx49epivi1bvtva"
+        },
+        {
+          "id" : 23,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "users",
+          "datetime" : "20/11/25 23:57:14,652868000",
+          "old_value" : "",
+          "new_value" : "ID: 8zaa55mo9rcarpvilrnx0yri, Name: Camila Martins, Email: camila.martins@skillmate.com, Role: 7lqyh49iyqpy36ce7az2yow6"
+        },
+        {
+          "id" : 24,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "users",
+          "datetime" : "20/11/25 23:57:14,653300000",
+          "old_value" : "",
+          "new_value" : "ID: atoolur234c89cor4n7m943u, Name: Gabriel Pereira, Email: gabriel.pereira@skillmate.com, Role: 47vd6thuzwnodibredt2asnt"
+        },
+        {
+          "id" : 25,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "goals",
+          "datetime" : "20/11/25 23:57:14,663282000",
+          "old_value" : "",
+          "new_value" : "ID: my0eau79ioogp4g3me8rs90g, Title: Dominar Machine Learning e Deep Learning para aplicações empresariais, User: 7vou9rja5l4uaboe3mz9qhvd"
+        },
+        {
+          "id" : 26,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "goals",
+          "datetime" : "20/11/25 23:57:14,664055000",
+          "old_value" : "",
+          "new_value" : "ID: 5laztk2mhetleo1cjrep7vkg, Title: Tornar-se Cloud Architect certificado em AWS e Azure, User: divz79pcoon41em8xesrp54h"
+        },
+        {
+          "id" : 27,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "goals",
+          "datetime" : "20/11/25 23:57:14,664540000",
+          "old_value" : "",
+          "new_value" : "ID: s63s4t0h904t50lpt8rui86v, Title: Especializar-se em Design Thinking e prototipação avançada, User: 6w0fwavmzo95hm4xpe7elgl0"
+        },
+        {
+          "id" : 28,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "goals",
+          "datetime" : "20/11/25 23:57:14,665022000",
+          "old_value" : "",
+          "new_value" : "ID: wd6pubmnh3hn4tug4n49eds3, Title: Dominar análise preditiva e visualização de dados avançada, User: 7vou9rja5l4uaboe3mz9qhvd"
+        },
+        {
+          "id" : 29,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "goals",
+          "datetime" : "20/11/25 23:57:14,665671000",
+          "old_value" : "",
+          "new_value" : "ID: pw9gth2e908ouduhuc6zj5wn, Title: Certificar-se como Scrum Master e Product Owner, User: jqv0bf84iezwr5mv04pioj1j"
+        },
+        {
+          "id" : 30,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "goals",
+          "datetime" : "20/11/25 23:57:14,666444000",
+          "old_value" : "",
+          "new_value" : "ID: llunbopcz6weifsguf2oweno, Title: Desenvolver chatbots e sistemas de NLP para atendimento, User: rxd1n64hc9kbxh4dpugs60zt"
+        },
+        {
+          "id" : 31,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "goals",
+          "datetime" : "20/11/25 23:57:14,667146000",
+          "old_value" : "",
+          "new_value" : "ID: p1yn8eg18utvvhhyxus2idne, Title: Tornar-se Product Manager especializado em produtos digitais, User: gfh5qmn0dyspc2bkeayecgyg"
+        },
+        {
+          "id" : 32,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "goals",
+          "datetime" : "20/11/25 23:57:14,667841000",
+          "old_value" : "",
+          "new_value" : "ID: ize5a921ci1asv4xqfz3nz5i, Title: Dominar pipelines de CI/CD e infraestrutura como código, User: ow0l9q3y2kx3jh7gy3qz96ot"
+        },
+        {
+          "id" : 33,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "goals",
+          "datetime" : "20/11/25 23:57:14,668516000",
+          "old_value" : "",
+          "new_value" : "ID: 0lh5i1txq2j9d9tb2lwd3bme, Title: Especializar-se em segurança de aplicações web e cloud, User: u5w97o0v17gq3go69fila9r2"
+        },
+        {
+          "id" : 34,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "goals",
+          "datetime" : "20/11/25 23:57:14,670016000",
+          "old_value" : "",
+          "new_value" : "ID: 0iww2jm8al1i1mptbbawvnyj, Title: Arquitetar soluções cloud escaláveis e resilientes, User: 3e4ccdz9rnl74tjui4kcoldy"
+        },
+        {
+          "id" : 35,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "goals",
+          "datetime" : "20/11/25 23:57:14,670792000",
+          "old_value" : "",
+          "new_value" : "ID: rl7g1imqt3rab6vqeai4l8u4, Title: Tornar-se Agile Coach e facilitador de transformação digital, User: 8zaa55mo9rcarpvilrnx0yri"
+        },
+        {
+          "id" : 36,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "goals",
+          "datetime" : "20/11/25 23:57:14,671512000",
+          "old_value" : "",
+          "new_value" : "ID: mwzopbohut2uszoufij2ia9g, Title: Dominar Machine Learning para análise de dados empresariais, User: atoolur234c89cor4n7m943u"
+        },
+        {
+          "id" : 37,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "weekly_plans",
+          "datetime" : "20/11/25 23:57:14,689426000",
+          "old_value" : "",
+          "new_value" : "ID: cir6lie48wvgj0xemkvtvaaj, Goal: my0eau79ioogp4g3me8rs90g, Weeks: 12"
+        },
+        {
+          "id" : 38,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "weekly_plans",
+          "datetime" : "20/11/25 23:57:14,690473000",
+          "old_value" : "",
+          "new_value" : "ID: jrxu8tbo5gl0ksbsfo11pcyr, Goal: my0eau79ioogp4g3me8rs90g, Weeks: 12"
+        },
+        {
+          "id" : 39,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "weekly_plans",
+          "datetime" : "20/11/25 23:57:14,691228000",
+          "old_value" : "",
+          "new_value" : "ID: s4l4baql0erk2fi3377tjzws, Goal: 5laztk2mhetleo1cjrep7vkg, Weeks: 16"
+        },
+        {
+          "id" : 40,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "weekly_plans",
+          "datetime" : "20/11/25 23:57:14,691971000",
+          "old_value" : "",
+          "new_value" : "ID: ymlbcy11m9oatr0vl2acykm9, Goal: 5laztk2mhetleo1cjrep7vkg, Weeks: 16"
+        },
+        {
+          "id" : 41,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "weekly_plans",
+          "datetime" : "20/11/25 23:57:14,692675000",
+          "old_value" : "",
+          "new_value" : "ID: lylz1kahgx5ezhccd5kmw9oe, Goal: s63s4t0h904t50lpt8rui86v, Weeks: 8"
+        },
+        {
+          "id" : 42,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "weekly_plans",
+          "datetime" : "20/11/25 23:57:14,693681000",
+          "old_value" : "",
+          "new_value" : "ID: z7w798raaw04928twkeiz3xp, Goal: wd6pubmnh3hn4tug4n49eds3, Weeks: 10"
+        },
+        {
+          "id" : 43,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "weekly_plans",
+          "datetime" : "20/11/25 23:57:14,694410000",
+          "old_value" : "",
+          "new_value" : "ID: ylplj0dbv7x1jshhjw8y9bv0, Goal: pw9gth2e908ouduhuc6zj5wn, Weeks: 6"
+        },
+        {
+          "id" : 44,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "weekly_plans",
+          "datetime" : "20/11/25 23:57:14,695203000",
+          "old_value" : "",
+          "new_value" : "ID: fpvl2ctoibjjzvbwunvjkg05, Goal: llunbopcz6weifsguf2oweno, Weeks: 8"
+        },
+        {
+          "id" : 45,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "weekly_plans",
+          "datetime" : "20/11/25 23:57:14,695912000",
+          "old_value" : "",
+          "new_value" : "ID: 6c7y4jf40axb3xq496a9dj33, Goal: ize5a921ci1asv4xqfz3nz5i, Weeks: 10"
+        },
+        {
+          "id" : 46,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "weekly_plans",
+          "datetime" : "20/11/25 23:57:14,696618000",
+          "old_value" : "",
+          "new_value" : "ID: at8jilwcrtaxlzi9c6ksjrqt, Goal: 0iww2jm8al1i1mptbbawvnyj, Weeks: 12"
+        },
+        {
+          "id" : 47,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "tasks",
+          "datetime" : "20/11/25 23:57:14,709516000",
+          "old_value" : "",
+          "new_value" : "ID: kvinptz7w58cu27huyyenz3c, Title: Assistir curso introdutório de Machine Learning, Completed: 0"
+        },
+        {
+          "id" : 48,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "tasks",
+          "datetime" : "20/11/25 23:57:14,710406000",
+          "old_value" : "",
+          "new_value" : "ID: 2lsn1kmkegxx5ladp9z6rghw, Title: Instalar e configurar ambiente Python, Completed: 1"
+        },
+        {
+          "id" : 49,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "tasks",
+          "datetime" : "20/11/25 23:57:14,711026000",
+          "old_value" : "",
+          "new_value" : "ID: u9xwgkvc600g3ch1cw0pd7l9, Title: Estudar conceitos de regressão linear e classificação, Completed: 0"
+        },
+        {
+          "id" : 50,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "tasks",
+          "datetime" : "20/11/25 23:57:14,711617000",
+          "old_value" : "",
+          "new_value" : "ID: xob45bynkf97u8nb6o3ynh5r, Title: Implementar primeira rede neural com TensorFlow, Completed: 0"
+        },
+        {
+          "id" : 51,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "tasks",
+          "datetime" : "20/11/25 23:57:14,712225000",
+          "old_value" : "",
+          "new_value" : "ID: vqmvdtvhozrclkph60eoav28, Title: Estudar arquiteturas de redes neurais convolucionais, Completed: 0"
+        },
+        {
+          "id" : 52,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "tasks",
+          "datetime" : "20/11/25 23:57:14,712824000",
+          "old_value" : "",
+          "new_value" : "ID: buerfhqj5np8ukuy4qa6i2i3, Title: Configurar conta AWS e explorar console, Completed: 1"
+        },
+        {
+          "id" : 53,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "tasks",
+          "datetime" : "20/11/25 23:57:14,713549000",
+          "old_value" : "",
+          "new_value" : "ID: f8co3xqwaqci0crjc7b6ua51, Title: Criar primeira instância EC2 e configurar segurança, Completed: 0"
+        },
+        {
+          "id" : 54,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "tasks",
+          "datetime" : "20/11/25 23:57:14,714168000",
+          "old_value" : "",
+          "new_value" : "ID: hekiob1gsh5846664shkmc87, Title: Estudar serviços fundamentais do Azure, Completed: 0"
+        },
+        {
+          "id" : 55,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "tasks",
+          "datetime" : "20/11/25 23:57:14,714577000",
+          "old_value" : "",
+          "new_value" : "ID: ob233eumcnwhzi2ty8hu8nf6, Title: Aprender técnicas de entrevista com usuários, Completed: 0"
+        },
+        {
+          "id" : 56,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "tasks",
+          "datetime" : "20/11/25 23:57:14,714990000",
+          "old_value" : "",
+          "new_value" : "ID: pig7d3yvfdchfmsvvsftezps, Title: Criar personas e mapas de empatia, Completed: 0"
+        },
+        {
+          "id" : 57,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "tasks",
+          "datetime" : "20/11/25 23:57:14,715373000",
+          "old_value" : "",
+          "new_value" : "ID: qo5kqd43j9068i7iryo4ulfj, Title: Dominar manipulação de dados com Pandas, Completed: 0"
+        },
+        {
+          "id" : 58,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "tasks",
+          "datetime" : "20/11/25 23:57:14,715758000",
+          "old_value" : "",
+          "new_value" : "ID: qmecdvp6xbit7tppd2eevq4d, Title: Implementar modelo preditivo com Scikit-learn, Completed: 0"
+        },
+        {
+          "id" : 59,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "references",
+          "datetime" : "20/11/25 23:57:14,723717000",
+          "old_value" : "",
+          "new_value" : "ID: huoyav261antyjz7b8q52nyv, Name: Coursera - Machine Learning, Task: kvinptz7w58cu27huyyenz3c"
+        },
+        {
+          "id" : 60,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "references",
+          "datetime" : "20/11/25 23:57:14,724404000",
+          "old_value" : "",
+          "new_value" : "ID: rt9f29mx6t1dgh3obvcw2fme, Name: Python.org Tutorial, Task: 2lsn1kmkegxx5ladp9z6rghw"
+        },
+        {
+          "id" : 61,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "references",
+          "datetime" : "20/11/25 23:57:14,725668000",
+          "old_value" : "",
+          "new_value" : "ID: 1uan3syydo32veuytex5rsld, Name: Scikit-learn Documentation, Task: u9xwgkvc600g3ch1cw0pd7l9"
+        },
+        {
+          "id" : 62,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "references",
+          "datetime" : "20/11/25 23:57:14,726377000",
+          "old_value" : "",
+          "new_value" : "ID: usrusbzid9svsama7v61lncv, Name: TensorFlow Tutorials, Task: xob45bynkf97u8nb6o3ynh5r"
+        },
+        {
+          "id" : 63,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "references",
+          "datetime" : "20/11/25 23:57:14,726879000",
+          "old_value" : "",
+          "new_value" : "ID: 0zrjxyilds7mun7hnmodf7zr, Name: Deep Learning Book, Task: vqmvdtvhozrclkph60eoav28"
+        },
+        {
+          "id" : 64,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "references",
+          "datetime" : "20/11/25 23:57:14,727370000",
+          "old_value" : "",
+          "new_value" : "ID: zuw36nyki84gz7thsq7cokil, Name: AWS Getting Started Guide, Task: buerfhqj5np8ukuy4qa6i2i3"
+        },
+        {
+          "id" : 65,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "references",
+          "datetime" : "20/11/25 23:57:14,727821000",
+          "old_value" : "",
+          "new_value" : "ID: 7l5rl1cpkdcuc6vlr2sjlro6, Name: AWS EC2 Documentation, Task: f8co3xqwaqci0crjc7b6ua51"
+        },
+        {
+          "id" : 66,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "references",
+          "datetime" : "20/11/25 23:57:14,728303000",
+          "old_value" : "",
+          "new_value" : "ID: 3mgth72x5rkif10sc7014fs9, Name: Microsoft Azure Learn, Task: hekiob1gsh5846664shkmc87"
+        },
+        {
+          "id" : 67,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "references",
+          "datetime" : "20/11/25 23:57:14,728775000",
+          "old_value" : "",
+          "new_value" : "ID: jqmz1xh0ybatz5dgvn2hym4t, Name: IDEO Design Thinking Toolkit, Task: ob233eumcnwhzi2ty8hu8nf6"
+        },
+        {
+          "id" : 68,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "references",
+          "datetime" : "20/11/25 23:57:14,729230000",
+          "old_value" : "",
+          "new_value" : "ID: zjagw75c2sj9vanttl14w3yx, Name: Figma Design System, Task: pig7d3yvfdchfmsvvsftezps"
+        },
+        {
+          "id" : 69,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "references",
+          "datetime" : "20/11/25 23:57:14,729685000",
+          "old_value" : "",
+          "new_value" : "ID: kt8srnt8zn5nvd2quksk5q0e, Name: Pandas Documentation, Task: qo5kqd43j9068i7iryo4ulfj"
+        },
+        {
+          "id" : 70,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "references",
+          "datetime" : "20/11/25 23:57:14,730158000",
+          "old_value" : "",
+          "new_value" : "ID: yubkftha39yelpas5fmhdgad, Name: Scikit-learn User Guide, Task: qmecdvp6xbit7tppd2eevq4d"
+        },
+        {
+          "id" : 73,
+          "username" : "RM554989",
+          "operation" : "INSERT",
+          "table_name" : "users",
+          "datetime" : "22/11/25 18:47:37,841117000",
+          "old_value" : "",
+          "new_value" : "ID: f3f4b3727cba4234a8d57c61, Name: messagind, Email: messagin@example.com, Role: d117bnpa8b7c3hx8hl99zuv3"
+        }
+      ]
+    }
+  ]
+}

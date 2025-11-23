@@ -1,0 +1,162 @@
+{
+  "results" : [
+    {
+      "columns" : [
+        {
+          "name" : "ID",
+          "type" : "CHAR"
+        },
+        {
+          "name" : "NAME",
+          "type" : "VARCHAR2"
+        },
+        {
+          "name" : "EMAIL",
+          "type" : "VARCHAR2"
+        },
+        {
+          "name" : "PASSWORD",
+          "type" : "VARCHAR2"
+        },
+        {
+          "name" : "ROLE_ID",
+          "type" : "CHAR"
+        },
+        {
+          "name" : "CREATED_AT",
+          "type" : "TIMESTAMP"
+        }
+      ],
+      "items" : [
+        {
+          "id" : "5b2df654f28948ac8076f280",
+          "name" : "Ian Braga",
+          "email" : "ian@example.com",
+          "password" : "$2a$10$1OrfnhQYWKDMAzakrjBPAe/aw9N/Y2oOfkMTuNhDV9GfV2KM8LLVG",
+          "role_id" : "farkv24sj89zjqw452snwtvp",
+          "created_at" : "20/11/25 23:13:08,846469000"
+        },
+        {
+          "id" : "8dbcbbc0257c4af58ae7e6be",
+          "name" : "Ian Admin",
+          "email" : "ian.admin@example.com",
+          "password" : "$2a$10$0tzPFEG1BBssJDzODdbqp.YXloUy/g4NbZl1niGdCf9XAVu.iqgLO",
+          "role_id" : "d117bnpa8b7c3hx8hl99zuv3",
+          "created_at" : "20/11/25 23:17:33,667601000"
+        },
+        {
+          "id" : "5d31bc8bd48e4cd1bde254a1",
+          "name" : "messagind",
+          "email" : "messagin-ui@example.com",
+          "password" : "$2a$10$5t0rtBRoqR11cORCKHX5Ku974PPA9f.uEc2jZ/rgsNM7Q.aq5g1Ja",
+          "role_id" : "d117bnpa8b7c3hx8hl99zuv3",
+          "created_at" : "22/11/25 23:55:53,952957000"
+        },
+        {
+          "id" : "ir3k8h61ib1dng3nc3d7eewc",
+          "name" : "Ana Silva",
+          "email" : "ana.silva@skillmate.com",
+          "password" : "pass123",
+          "role_id" : "d117bnpa8b7c3hx8hl99zuv3",
+          "created_at" : "20/11/25 23:57:14,646930000"
+        },
+        {
+          "id" : "divz79pcoon41em8xesrp54h",
+          "name" : "Carlos Mendes",
+          "email" : "carlos.mendes@skillmate.com",
+          "password" : "pass123",
+          "role_id" : "farkv24sj89zjqw452snwtvp",
+          "created_at" : "20/11/25 23:57:14,649022000"
+        },
+        {
+          "id" : "6w0fwavmzo95hm4xpe7elgl0",
+          "name" : "Mariana Costa",
+          "email" : "mariana.costa@skillmate.com",
+          "password" : "pass123",
+          "role_id" : "6mjmgruj1jhxfktia61cyk3c",
+          "created_at" : "20/11/25 23:57:14,649442000"
+        },
+        {
+          "id" : "7vou9rja5l4uaboe3mz9qhvd",
+          "name" : "João Santos",
+          "email" : "joao.santos@skillmate.com",
+          "password" : "pass123",
+          "role_id" : "dsmldgicn1x2ko1bhhmo1fc5",
+          "created_at" : "20/11/25 23:57:14,649833000"
+        },
+        {
+          "id" : "jqv0bf84iezwr5mv04pioj1j",
+          "name" : "Fernanda Lima",
+          "email" : "fernanda.lima@skillmate.com",
+          "password" : "pass123",
+          "role_id" : "ykqk3or95wyky2lea5ppzkjh",
+          "created_at" : "20/11/25 23:57:14,650228000"
+        },
+        {
+          "id" : "rxd1n64hc9kbxh4dpugs60zt",
+          "name" : "Ricardo Alves",
+          "email" : "ricardo.alves@skillmate.com",
+          "password" : "pass123",
+          "role_id" : "derpp68232w6v0ciold9hdgi",
+          "created_at" : "20/11/25 23:57:14,650657000"
+        },
+        {
+          "id" : "gfh5qmn0dyspc2bkeayecgyg",
+          "name" : "Juliana Rocha",
+          "email" : "juliana.rocha@skillmate.com",
+          "password" : "pass123",
+          "role_id" : "c24qqmd2p70jkq2ypkhksnno",
+          "created_at" : "20/11/25 23:57:14,651030000"
+        },
+        {
+          "id" : "ow0l9q3y2kx3jh7gy3qz96ot",
+          "name" : "Pedro Oliveira",
+          "email" : "pedro.oliveira@skillmate.com",
+          "password" : "pass123",
+          "role_id" : "gso6oqqg7m56ibui0mf6g463",
+          "created_at" : "20/11/25 23:57:14,651375000"
+        },
+        {
+          "id" : "u5w97o0v17gq3go69fila9r2",
+          "name" : "Larissa Ferreira",
+          "email" : "larissa.ferreira@skillmate.com",
+          "password" : "pass123",
+          "role_id" : "wkj0qtxjljm42u8nkvftrm7g",
+          "created_at" : "20/11/25 23:57:14,651791000"
+        },
+        {
+          "id" : "3e4ccdz9rnl74tjui4kcoldy",
+          "name" : "Bruno Souza",
+          "email" : "bruno.souza@skillmate.com",
+          "password" : "pass123",
+          "role_id" : "wngzhji33yx49epivi1bvtva",
+          "created_at" : "20/11/25 23:57:14,652390000"
+        },
+        {
+          "id" : "8zaa55mo9rcarpvilrnx0yri",
+          "name" : "Camila Martins",
+          "email" : "camila.martins@skillmate.com",
+          "password" : "pass123",
+          "role_id" : "7lqyh49iyqpy36ce7az2yow6",
+          "created_at" : "20/11/25 23:57:14,652762000"
+        },
+        {
+          "id" : "atoolur234c89cor4n7m943u",
+          "name" : "Gabriel Pereira",
+          "email" : "gabriel.pereira@skillmate.com",
+          "password" : "pass123",
+          "role_id" : "47vd6thuzwnodibredt2asnt",
+          "created_at" : "20/11/25 23:57:14,653151000"
+        },
+        {
+          "id" : "f3f4b3727cba4234a8d57c61",
+          "name" : "messagind",
+          "email" : "messagin@example.com",
+          "password" : "$2a$10$LB5vXQOX0w84xM84wEArv.7o8hiVgOsoRjY/Gj.yDrqQksBMzR3ui",
+          "role_id" : "d117bnpa8b7c3hx8hl99zuv3",
+          "created_at" : "22/11/25 17:47:37,676826000"
+        }
+      ]
+    }
+  ]
+}

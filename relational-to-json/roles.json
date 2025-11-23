@@ -1,0 +1,98 @@
+{
+  "results" : [
+    {
+      "columns" : [
+        {
+          "name" : "ID",
+          "type" : "CHAR"
+        },
+        {
+          "name" : "NAME",
+          "type" : "VARCHAR2"
+        },
+        {
+          "name" : "ACRONYM",
+          "type" : "VARCHAR2"
+        },
+        {
+          "name" : "CREATED_AT",
+          "type" : "TIMESTAMP"
+        }
+      ],
+      "items" : [
+        {
+          "id" : "d117bnpa8b7c3hx8hl99zuv3",
+          "name" : "Administrador",
+          "acronym" : "ADM",
+          "created_at" : "20/11/25 23:57:14,514705000"
+        },
+        {
+          "id" : "farkv24sj89zjqw452snwtvp",
+          "name" : "Desenvolvedor",
+          "acronym" : "DEV",
+          "created_at" : "20/11/25 23:57:14,521187000"
+        },
+        {
+          "id" : "6mjmgruj1jhxfktia61cyk3c",
+          "name" : "Designer UX/UI",
+          "acronym" : "DSG",
+          "created_at" : "20/11/25 23:57:14,521603000"
+        },
+        {
+          "id" : "dsmldgicn1x2ko1bhhmo1fc5",
+          "name" : "Analista de Dados",
+          "acronym" : "ANL",
+          "created_at" : "20/11/25 23:57:14,521996000"
+        },
+        {
+          "id" : "ykqk3or95wyky2lea5ppzkjh",
+          "name" : "Gerente de Projetos",
+          "acronym" : "GPR",
+          "created_at" : "20/11/25 23:57:14,522432000"
+        },
+        {
+          "id" : "derpp68232w6v0ciold9hdgi",
+          "name" : "Especialista em IA",
+          "acronym" : "IA",
+          "created_at" : "20/11/25 23:57:14,522835000"
+        },
+        {
+          "id" : "c24qqmd2p70jkq2ypkhksnno",
+          "name" : "Product Manager",
+          "acronym" : "PM",
+          "created_at" : "20/11/25 23:57:14,523208000"
+        },
+        {
+          "id" : "gso6oqqg7m56ibui0mf6g463",
+          "name" : "DevOps Engineer",
+          "acronym" : "DOE",
+          "created_at" : "20/11/25 23:57:14,523596000"
+        },
+        {
+          "id" : "wkj0qtxjljm42u8nkvftrm7g",
+          "name" : "Cybersecurity",
+          "acronym" : "CS",
+          "created_at" : "20/11/25 23:57:14,523987000"
+        },
+        {
+          "id" : "wngzhji33yx49epivi1bvtva",
+          "name" : "Cloud Architect",
+          "acronym" : "CA",
+          "created_at" : "20/11/25 23:57:14,524342000"
+        },
+        {
+          "id" : "7lqyh49iyqpy36ce7az2yow6",
+          "name" : "Scrum Master",
+          "acronym" : "SM",
+          "created_at" : "20/11/25 23:57:14,524725000"
+        },
+        {
+          "id" : "47vd6thuzwnodibredt2asnt",
+          "name" : "Data Scientist",
+          "acronym" : "DS",
+          "created_at" : "20/11/25 23:57:14,525075000"
+        }
+      ]
+    }
+  ]
+}
